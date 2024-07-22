@@ -1,0 +1,101 @@
+.title1{
+    color: #252B5F;
+    font-size: 25px;
+}
+
+.title2{
+    font-size: 20px;
+    color: #666;
+}
+
+.input-box{
+    border: 2px solid #9e9797;
+    width: 300px;
+    border-radius: 12px;
+    position: relative;
+    padding-left: 0px;
+    display: inline-block;
+}
+
+.active-input-box{
+    border: 2px solid #252B5F;
+      width: 300px;
+    border-radius: 12px;
+    position: relative;
+    padding-left: 0px;
+    display: inline-block;
+}
+
+input{
+    padding: 10px 0;
+    outline: none;
+    border: none;
+}
+
+.eyeslash-icon{
+    position: absolute;
+    color: #666;
+}
+
+.reset-text{
+    font-size: 12px;
+}
+
+.forgot {
+    color: #666;
+}
+
+.reset{
+    color: #252B5F;
+}
+
+.login-btn{
+    background-color: #272A62;
+    color: #fff;
+    border-radius: 16px;
+    width: 147px;
+}
+
+
+@media (min-width:768px) {
+
+    .title1 {
+       margin-left: -180px;
+   }
+
+   .title2{
+       margin-left: -225px;
+
+   } 
+
+
+.reset-text{
+   margin-left: 0;
+}
+
+.login-btn{
+   margin-left: -150px;
+   border-radius: 22px;
+
+}
+
+}
+
+@media (min-width:992px) {
+    
+    .title1 {
+        margin-left: -370px;
+    }
+ 
+    .title2{
+        margin-left: -420px;
+ 
+    } 
+
+    .login-btn{
+        margin-left: -350px;
+        border-radius: 32px;
+        
+    }
+ 
+}
