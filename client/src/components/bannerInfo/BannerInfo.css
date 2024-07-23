@@ -1,6 +1,7 @@
-.banner-info{
+ .banner-info{
     position: absolute;
-    margin-top: 41px;
+    margin-top: 5px;
+    z-index: 1;
 }
 
 .logo{
@@ -19,7 +20,6 @@
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
     font-size: 17px;
-    width: 53vw;
 }
 
 .p1{
@@ -28,7 +28,8 @@
 
 .p2{
     font-size: 17px;
-}
+} 
+    
 
 @media (min-width:768px) {
     .h1{

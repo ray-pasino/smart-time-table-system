@@ -1,39 +1,34 @@
-import React, { useState } from "react";
-import { NavLink } from 'react-router-dom'
-import "./Studentlogin.css";
+import React from 'react'
+import './Administratorlogin.css'
 import { assests } from "../../assets/assests";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from 'react-router-dom';
 
-const Studentlogin = () => {
+const Administratorlogin = ({isClicked, setIsClicked, isClicked2, setIsClicked2, seePassword, setSeePassword}) => {
 
-  const [isClicked, setIsClicked] = useState(false)
-  const [isClicked2, setIsClicked2] = useState(false)
-  const [seePassword, setSeePassword] = useState(false)
 
-  const toggleclick = ()=> {
-    setIsClicked(!isClicked)
-    setIsClicked2(false)
 
-  }
-
-  const toggleclick2 = ()=> {
-    setIsClicked2(!isClicked2)
-    setIsClicked(false)
-
-  }
-
-  const toggleSeePassword = ()=>{
-    setSeePassword(!seePassword)
-  }
+    const toggleclick = () => {    
+        setIsClicked(!isClicked);
+        setIsClicked2(false);
+      };
+    
+      const toggleclick2 = () => {
+        setIsClicked2(!isClicked2);
+        setIsClicked(false);
+      };
+    
+      const toggleSeePassword = ()=>{
+        setSeePassword(!seePassword)
+      }
 
 
   return (
-    <div className="studentlogin">
-      
-      <div className="banner-border"></div>
+    <div className='adminstratorlogin'>
+         <div className="banner-border"></div>
         <div className="gradient"></div>
-      <img className="bannerImg object-cover h-64" src={assests.studygroup} />
+      <img className="bannerImg object-cover h-64" src={assests.admin} />
 
       <div className="login-inner-container">
 
@@ -41,14 +36,14 @@ const Studentlogin = () => {
 
       <div className="login-form text-center my-6">
         <span>
-          <p className="title1 font-bold">STUDENT</p>
+          <p className="title1 font-bold">ADMINISTRATOR</p>
           <p className="title2">LOG IN</p>
         </span>
       </div>
 
       <form className="login-form text-center mx-16">
     <div onClick={toggleclick} className={isClicked ? 'active-input-box mb-4' : 'input-box mb-4'} id="input">
-    <input type="number" name="id" placeholder='Index Number' required/>
+    <input type="number" name="id" placeholder='Lecturer ID' required/>
     </div>
 
   <div onClick={toggleclick2} className={isClicked2 ? 'active-input-box mb-2' : 'input-box mb-2'} id="input">
@@ -67,7 +62,7 @@ const Studentlogin = () => {
   </form>
   </div>
     </div>
-  );
-};
+  )
+}
 
-export default Studentlogin;
+export default Administratorlogin

@@ -4,6 +4,7 @@ import './Lecturerlogin.css'
 import { assests } from '../../assets/assests'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons'
+import Footer from '../../components/footer/Footer'
 
 const Lecturerlogin = () => {
 
@@ -28,12 +29,13 @@ const Lecturerlogin = () => {
   }
 
   return (
+    <>
     <div className='lecturerlogin'>
 
          
       <div className="banner-border"></div>
         <div className="gradient"></div>
-      <img className='bannerImg' src={assests.lecturerImage}/>
+      <img className='bannerImg object-cover h-64' src={assests.lecturerImage}/>
       <div className="login-inner-container">
     <div className="login-form text-center my-6">
         <span>
@@ -42,7 +44,7 @@ const Lecturerlogin = () => {
         </span>
     </div>
 
-    <form className="login-form text-center mx-10">
+    <form className="login-form text-center mx-16">
       <div onClick={toggleclick} className={isClicked ? 'active-input-box mb-4' : 'input-box mb-4'} id='input'>
       <input type="number" name="id" placeholder='Lecturer ID' required/>
       </div>
@@ -63,6 +65,7 @@ const Lecturerlogin = () => {
     </form>
     </div>
     </div>
+    </>
   )
 }
 

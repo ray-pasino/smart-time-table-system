@@ -1,6 +1,8 @@
 import React from 'react'
 import './Verifystudent.css'
 import { studentInfo } from '../../assets/assests'
+import Header from '../../components/Header/Header';
+import Nfooter from '../../components/n-footer/Nfooter';
 
 const Verifystudent = ({isClicked, setIsClicked, isClicked2, setIsClicked2}) => {
 
@@ -8,7 +10,6 @@ const Verifystudent = ({isClicked, setIsClicked, isClicked2, setIsClicked2}) => 
   const toggleclick = () => {
     setIsClicked(!isClicked);
     setIsClicked2(false);
-    console.log('yes')
   };
 
   const toggleclick2 = () => {
@@ -17,10 +18,14 @@ const Verifystudent = ({isClicked, setIsClicked, isClicked2, setIsClicked2}) => 
   };
 
   return (
-    <div className='ms-6 mt-4 container'>
-      <h2>VERIFY ACCOUNT INFORMATION</h2>
+    <>
+    <Header/>
+    <div className='ms-6 mt-20 md:mt-48 container md:ms-0 md:ms-40'>
+      <h2 className='md:text-3xl md:border-y md:py-4'>VERIFY ACCOUNT INFORMATION</h2>
 
-      <div className='info mt-4'>
+      <div className='info mt-4 md:mt-16 md:flex'>
+        <div className="info md:me-64 md:w-full">
+
         <p className='title'>NAME</p>
         <p className='attribute mb-4'>{studentInfo.name}</p>
     
@@ -35,6 +40,20 @@ const Verifystudent = ({isClicked, setIsClicked, isClicked2, setIsClicked2}) => 
 
         <p className='title'>PROGRAMME</p>
         <p className='attribute mb-4'>{studentInfo.program}</p>
+
+        <p className='title'>LEVEL</p>
+        <p className='attribute mb-4'>{studentInfo.campus}</p>
+
+        <p className='title'>CAMPUS</p>
+        <p className='attribute mb-4'>{studentInfo.program}</p>
+
+        <p className='title'>SESSION</p>
+        <p className='attribute mb-4'>{studentInfo.session}</p>
+
+        <p className='title'>TELEPHONE NUMBER</p>
+        <p className='attribute mb-4'>{studentInfo.phone}</p>
+
+        </div>
 
         <form className='reset-password-form'>
             <div className="reset-password-container mb-2">
@@ -60,12 +79,14 @@ const Verifystudent = ({isClicked, setIsClicked, isClicked2, setIsClicked2}) => 
 
             </div>
 
-            <input type="submit" value="Change Password" className='cp-btn font-semibold shadow-lg mb-4'/>
+            <input type="submit" value="Change Password" className='cp-btn font-semibold shadow-lg mb-12 md:mt-4'/>
         </form>
       </div>
 
 
     </div>
+    <Nfooter/>
+    </>
   )
 }
 

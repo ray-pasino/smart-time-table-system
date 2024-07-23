@@ -1,11 +1,11 @@
 import React from 'react'
-import './Footer.css'
+import './Nfooter.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faFacebook, faTwitter, faInstagram} from '@fortawesome/free-brands-svg-icons'
 
-const Footer = () => {
+const Nfooter = () => {
   return (
-    <div className='footer mx-10 text-sm text-center sticky'>
+    <div className='Nfooter mx-10 text-sm text-center sticky'>
 
       <ul className="navlinks flex text-xs space-x-2 justify-center">
         <li className="whitespace-nowrap">GCTU</li>
@@ -37,4 +37,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default Nfooter
