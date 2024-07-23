@@ -9,6 +9,7 @@ import Verifylecturer from './pages/Verifylecturer/Verifylecturer'
 import Verifystudent from './pages/verifystudent/Verifystudent'
 import Footer from './components/footer/Footer'
 import Administratorlogin from './pages/Administratorlogin/Administratorlogin'
+import Verifyadministrator from './pages/Verifyadministrator/Verifyadministrator'
 
 
 
@@ -35,9 +36,10 @@ const App = () => {
       <Route path ='/' element={<Login/>}/>
       <Route path='/studentlogin' element={<Studentlogin/>}/>
       <Route path='/lecturerlogin' element={<Lecturerlogin/>}/>
+      <Route path='/administratorlogin' element={<Administratorlogin isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2} seePassword={seePassword} setSeePassword={setSeePassword}/>}/>
       <Route path='/verifystudentinfo' element={<Verifystudent isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2}/>}/>
       <Route path='/verifylecturerinfo' element={<Verifylecturer isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2}/>}/>
-      <Route path='/administratorlogin' element={<Administratorlogin isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2} seePassword={seePassword} setSeePassword={setSeePassword}/>}/>
+      <Route path='/verifyadministratorinfo' element={<Verifyadministrator isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2}/>}/>
     </Routes>
 
     {showBannerandFooter  && <Footer/> }

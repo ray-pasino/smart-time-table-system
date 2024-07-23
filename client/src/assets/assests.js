@@ -37,3 +37,13 @@ export const lecturerInfo =
         phone: "0238456789",
         campus : "MAIN CAMPUS - ABEKA"
     }
+
+
+    export const adminstratorinfo = 
+{
+        name : "OBED EWUDZIE",
+        email : "ewudzieobed@live.gctu.edu.gh",
+        phone : "0239494316",
+        team : "GENERAL STAFF",
+        campus : "MAIN CAMPUS - ABEKA"
+}   

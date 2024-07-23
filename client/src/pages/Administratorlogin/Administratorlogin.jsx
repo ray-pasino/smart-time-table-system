@@ -53,7 +53,7 @@ const Administratorlogin = ({isClicked, setIsClicked, isClicked2, setIsClicked2,
 
   <div className='reset-text flex ms-6 mb-7'>
       <p className='me-2 forgot'>Forgot password?</p>
-      <NavLink to='/verifystudentinfo' className='reset font-bold'>RESET</NavLink>
+      <NavLink to='/verifyadministratorinfo' className='reset font-bold'>RESET</NavLink>
     </div>
 
     <input type="submit"  value='LOG IN' className='login-btn font-bold shadow-lg mb-10'/>
