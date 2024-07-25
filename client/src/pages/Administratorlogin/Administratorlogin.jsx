@@ -27,7 +27,7 @@ const Administratorlogin = ({isClicked, setIsClicked, isClicked2, setIsClicked2,
   return (
     <div className='adminstratorlogin'>
          <div className="banner-border"></div>
-        <div className="gradient"></div>
+        <div className="gradient h-64"></div>
       <img className="bannerImg object-cover h-64" src={assests.admin} />
 
       <div className="login-inner-container">
@@ -41,7 +41,7 @@ const Administratorlogin = ({isClicked, setIsClicked, isClicked2, setIsClicked2,
         </span>
       </div>
 
-      <form className="login-form text-center mx-16">
+      <form className="login-form text-center mx-14">
     <div onClick={toggleclick} className={isClicked ? 'active-input-box mb-4' : 'input-box mb-4'} id="input">
     <input type="number" name="id" placeholder='Lecturer ID' required/>
     </div>
@@ -56,7 +56,9 @@ const Administratorlogin = ({isClicked, setIsClicked, isClicked2, setIsClicked2,
       <NavLink to='/verifyadministratorinfo' className='reset font-bold'>RESET</NavLink>
     </div>
 
+    <NavLink to='/administrator'>
     <input type="submit"  value='LOG IN' className='login-btn font-bold shadow-lg mb-10'/>
+    </NavLink>
 
 
   </form>

@@ -3,13 +3,17 @@ import adminBlock from './adminblock.jpg'
 import studygroup from './study-group-african-people.jpg'
 import logo from './logo.png'
 import admin from './sysadmin_03.jpg'
+import adminprofile from './adminprofile.png'
+import caretdown from './caretdown.png'
 
 export const assests = {
     lecturerImage,
     adminBlock,
     studygroup,
     logo,
-    admin
+    admin,
+    adminprofile,
+    caretdown
 }
 
 
@@ -45,5 +49,6 @@ export const lecturerInfo =
         email : "ewudzieobed@live.gctu.edu.gh",
         phone : "0239494316",
         team : "GENERAL STAFF",
-        campus : "MAIN CAMPUS - ABEKA"
+        campus : "MAIN CAMPUS - ABEKA",
+        profileImage : adminprofile
 }   

@@ -1,0 +1,15 @@
+.AdminHeader{
+    height: 10vh;
+}
+
+.adminheadergradient{
+    background-image: linear-gradient(to right, #252B5F,  #A39577);
+    height: 10vh;
+    width: 100vw;
+}
+
+.shield{
+    margin-left: 5vw;
+    margin-right: 5vw;
+    gap: 45vw;
+}

@@ -9,8 +9,8 @@ const Login = () => {
     <>
     <div className='login '>
        <div className="banner-border"></div>
-       <div className="gradient"></div>
-      <img className='bannerImg' src={assests.adminBlock}/>
+       <div className="gradient h-64"></div>
+      <img className='bannerImg h-64' src={assests.adminBlock}/>
       <div className="login-links mx-4">
       <p>ARE YOU</p>
       <div className="button-container space-x-4">

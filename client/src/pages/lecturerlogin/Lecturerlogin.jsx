@@ -34,12 +34,12 @@ const Lecturerlogin = () => {
 
          
       <div className="banner-border"></div>
-        <div className="gradient"></div>
+        <div className="gradient h-64"></div>
       <img className='bannerImg object-cover h-64' src={assests.lecturerImage}/>
       <div className="login-inner-container">
     <div className="login-form text-center my-6">
         <span>
-          <p className='title1 font-bold'>LECTURER</p>
+          <p className='Ltitle1 font-bold'>LECTURER</p>
           <p className='title2'>LOG IN</p>
         </span>
     </div>

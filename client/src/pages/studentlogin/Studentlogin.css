@@ -1,4 +1,4 @@
-.title1{
+.Title1{
     color: #252B5F;
     font-size: 25px;
 }
@@ -10,7 +10,7 @@
 
 .input-box{
     border: 2px solid #9e9797;
-    width: 300px;
+    width: 255px;
     border-radius: 12px;
     position: relative;
     padding-left: 0px;
@@ -19,7 +19,7 @@
 
 .active-input-box{
     border: 2px solid #252B5F;
-      width: 300px;
+    width: 255px;
     border-radius: 12px;
     position: relative;
     padding-left: 0px;
@@ -31,6 +31,7 @@ input{
     padding: 10px 0;
     outline: none;
     border: none;
+    width: 200px;
 }
 
 .eyeslash-icon{
@@ -58,10 +59,12 @@ input{
     width: 147px;
 }
 
+
+
 @media (min-width:768px) {
 
-     .title1 {
-        margin-left: -180px;
+     .Title1 {
+        margin-left: -170px;
     }
 
     .title2{
@@ -80,13 +83,29 @@ input{
 
 }
 
+
+.input-box{
+    width: 300px;
+}
+
+.active-input-box{
+    width: 300px;
+}
+
+input{
+    padding: 10px 0;
+    outline: none;
+    border: none;
+    width: 245px;
+}
+
 }
 
 
 @media (min-width:992px) {
     
-    .title1 {
-        margin-left: -370px;
+    .Title1 {
+        margin-left: -373px;
     }
  
     .title2{
@@ -98,6 +117,10 @@ input{
         margin-left: -350px;
         border-radius: 32px;
         
+    }
+
+    input{
+        width: 365px;
     }
  
 }

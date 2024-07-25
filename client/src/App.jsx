@@ -10,6 +10,7 @@ import Verifystudent from './pages/verifystudent/Verifystudent'
 import Footer from './components/footer/Footer'
 import Administratorlogin from './pages/Administratorlogin/Administratorlogin'
 import Verifyadministrator from './pages/Verifyadministrator/Verifyadministrator'
+import Administrator from './pages/Administrator/Administrator'
 
 
 
@@ -40,6 +41,7 @@ const App = () => {
       <Route path='/verifystudentinfo' element={<Verifystudent isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2}/>}/>
       <Route path='/verifylecturerinfo' element={<Verifylecturer isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2}/>}/>
       <Route path='/verifyadministratorinfo' element={<Verifyadministrator isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2}/>}/>
+      <Route path='/administrator' element={<Administrator/>}/>
     </Routes>
 
     {showBannerandFooter  && <Footer/> }

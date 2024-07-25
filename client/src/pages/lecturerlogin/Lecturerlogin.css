@@ -1,4 +1,4 @@
-.title1{
+.Ltitle1{
     color: #252B5F;
     font-size: 25px;
 }
@@ -10,32 +10,35 @@
 
 .input-box{
     border: 2px solid #9e9797;
-    width: 300px;
+    width: 255px;
     border-radius: 12px;
     position: relative;
     padding-left: 0px;
-    display: inline-block;
+    display: block;
 }
 
 .active-input-box{
     border: 2px solid #252B5F;
-      width: 300px;
+    width: 255px;
     border-radius: 12px;
     position: relative;
     padding-left: 0px;
-    display: inline-block;
+    display: block;
+
 }
 
 input{
     padding: 10px 0;
     outline: none;
     border: none;
+    width: 200px;
 }
 
 .eyeslash-icon{
     position: absolute;
     color: #666;
 }
+
 
 .reset-text{
     font-size: 12px;
@@ -57,34 +60,52 @@ input{
 }
 
 
+
 @media (min-width:768px) {
 
-    .title1 {
-       margin-left: -180px;
-   }
+     .Ltitle1 {
+        margin-left: -165px;
+    }
 
-   .title2{
-       margin-left: -225px;
+    .title2{
+        margin-left: -225px;
 
-   } 
+    } 
 
 
 .reset-text{
-   margin-left: 0;
+    margin-left: 0;
 }
 
 .login-btn{
-   margin-left: -150px;
-   border-radius: 22px;
+    margin-left: -150px;
+    border-radius: 22px;
 
 }
 
+
+.input-box{
+    width: 300px;
 }
+
+.active-input-box{
+    width: 300px;
+}
+
+input{
+    padding: 10px 0;
+    outline: none;
+    border: none;
+    width: 245px;
+}
+
+}
+
 
 @media (min-width:992px) {
     
-    .title1 {
-        margin-left: -370px;
+    .Ltitle1 {
+        margin-left: -360px;
     }
  
     .title2{
@@ -96,6 +117,10 @@ input{
         margin-left: -350px;
         border-radius: 32px;
         
+    }
+
+    input{
+        width: 365px;
     }
  
 }

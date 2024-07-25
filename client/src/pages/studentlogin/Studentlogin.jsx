@@ -32,7 +32,7 @@ const Studentlogin = () => {
     <div className="studentlogin">
       
       <div className="banner-border"></div>
-        <div className="gradient"></div>
+        <div className="gradient h-64"></div>
       <img className="bannerImg object-cover h-64" src={assests.studygroup} />
 
       <div className="login-inner-container">
@@ -41,7 +41,7 @@ const Studentlogin = () => {
 
       <div className="login-form text-center my-6">
         <span>
-          <p className="title1 font-bold">STUDENT</p>
+          <p className="Title1 font-bold">STUDENT</p>
           <p className="title2">LOG IN</p>
         </span>
       </div>

@@ -10,7 +10,7 @@
 
 .input-box{
     border: 2px solid #9e9797;
-    width: 300px;
+    width: 255px;
     border-radius: 12px;
     position: relative;
     padding-left: 0px;
@@ -19,7 +19,7 @@
 
 .active-input-box{
     border: 2px solid #252B5F;
-      width: 300px;
+    width: 255px;
     border-radius: 12px;
     position: relative;
     padding-left: 0px;
@@ -31,6 +31,7 @@ input{
     padding: 10px 0;
     outline: none;
     border: none;
+    width: 200px;
 }
 
 .eyeslash-icon{
@@ -58,6 +59,8 @@ input{
     width: 147px;
 }
 
+
+
 @media (min-width:768px) {
 
      .title1 {
@@ -80,6 +83,22 @@ input{
 
 }
 
+
+.input-box{
+    width: 300px;
+}
+
+.active-input-box{
+    width: 300px;
+}
+
+input{
+    padding: 10px 0;
+    outline: none;
+    border: none;
+    width: 245px;
+}
+
 }
 
 
@@ -95,9 +114,13 @@ input{
     } 
 
     .login-btn{
-        margin-left: -350px;
+        margin-left: -250px;
         border-radius: 32px;
         
+    }
+
+    input{
+        width: 365px;
     }
  
 }
