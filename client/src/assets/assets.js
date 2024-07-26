@@ -5,6 +5,12 @@ import logo from './logo.png'
 import admin from './sysadmin_03.jpg'
 import adminprofile from './adminprofile.png'
 import caretdown from './caretdown.png'
+import timetableicon from './tiemtable-icon.png'
+import generatetimetableicon from './generate-time-table-icon.png'
+import viewtimetable from './view-time-table.png'
+import personicon from './person-icon.png'
+import courseicon from './course-icon.png'
+import timeicon from './time-icon.png'
 
 export const assets = {
     lecturerImage,
@@ -13,7 +19,13 @@ export const assets = {
     logo,
     admin,
     adminprofile,
-    caretdown
+    caretdown,
+    timetableicon,
+    generatetimetableicon,
+    viewtimetable,
+    personicon,
+    courseicon,
+    timeicon
 }
 
 
