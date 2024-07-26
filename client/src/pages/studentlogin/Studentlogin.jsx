@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from 'react-router-dom'
 import "./Studentlogin.css";
-import { assests } from "../../assets/assests";
+import { assets } from "../../assets/assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
@@ -33,7 +33,7 @@ const Studentlogin = () => {
       
       <div className="banner-border"></div>
         <div className="gradient h-64"></div>
-      <img className="bannerImg object-cover h-64" src={assests.studygroup} />
+      <img className="bannerImg object-cover h-64" src={assets.studygroup} />
 
       <div className="login-inner-container">
 

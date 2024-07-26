@@ -1,6 +1,6 @@
 import React from 'react'
 import './BannerInfo.css'
-import { assests } from '../../assets/assests'
+import { assets } from '../../assets/assets'
 import { NavLink } from 'react-router-dom'
 
 const BannerInfo = () => {
@@ -10,7 +10,7 @@ const BannerInfo = () => {
     <div className='banner-info text-white'> 
       <div className="head flex md:mt-0">
         <NavLink to='/'>
-        <img className='logo md:ms-6 mt-2' src={assests.logo} alt="gctulogo"/> 
+        <img className='logo md:ms-6 mt-2' src={assets.logo} alt="gctulogo"/> 
         </NavLink>
          <NavLink to ='/' className='mt-4 md:text-b-blue'>
             <h2 className='h1 font-bold'>GCTU TIMETABLE</h2>

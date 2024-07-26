@@ -6,7 +6,7 @@ import admin from './sysadmin_03.jpg'
 import adminprofile from './adminprofile.png'
 import caretdown from './caretdown.png'
 
-export const assests = {
+export const assets = {
     lecturerImage,
     adminBlock,
     studygroup,

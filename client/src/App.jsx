@@ -14,11 +14,13 @@ import Administrator from './pages/Administrator/Administrator'
 
 
 
+
 const App = () => {
 
   const [isClicked, setIsClicked] = useState(false);
   const [isClicked2, setIsClicked2] = useState(false); 
-  const [seePassword, setSeePassword] = useState(false)
+  const [seePassword, setSeePassword] = useState(false);
+  
 
   const location = useLocation()
 
@@ -41,7 +43,7 @@ const App = () => {
       <Route path='/verifystudentinfo' element={<Verifystudent isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2}/>}/>
       <Route path='/verifylecturerinfo' element={<Verifylecturer isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2}/>}/>
       <Route path='/verifyadministratorinfo' element={<Verifyadministrator isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2}/>}/>
-      <Route path='/administrator' element={<Administrator/>}/>
+      <Route path='/administrator' element={<Administrator/>} />
     </Routes>
 
     {showBannerandFooter  && <Footer/> }

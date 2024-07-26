@@ -1,6 +1,6 @@
 import React from 'react'
 import './Verifyadministrator.css'
-import { adminstratorinfo } from '../../assets/assests'
+import { adminstratorinfo } from '../../assets/assets'
 import Header from '../../components/Header/Header';
 import Nfooter from '../../components/n-footer/Nfooter'
 

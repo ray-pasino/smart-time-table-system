@@ -1,6 +1,6 @@
 import React from 'react'
 import './Administratorlogin.css'
-import { assests } from "../../assets/assests";
+import { assets } from "../../assets/assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from 'react-router-dom';
@@ -28,7 +28,7 @@ const Administratorlogin = ({isClicked, setIsClicked, isClicked2, setIsClicked2,
     <div className='adminstratorlogin'>
          <div className="banner-border"></div>
         <div className="gradient h-64"></div>
-      <img className="bannerImg object-cover h-64" src={assests.admin} />
+      <img className="bannerImg object-cover h-64" src={assets.admin} />
 
       <div className="login-inner-container">
 

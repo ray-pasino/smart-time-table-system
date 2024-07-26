@@ -1,6 +1,6 @@
 import React from 'react'
 import './Verifystudent.css'
-import { studentInfo } from '../../assets/assests'
+import { studentInfo } from '../../assets/assets'
 import Header from '../../components/Header/Header';
 import Nfooter from '../../components/n-footer/Nfooter';
 

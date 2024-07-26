@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Lecturerlogin.css'
-import { assests } from '../../assets/assests'
+import { assets } from '../../assets/assets'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons'
-import Footer from '../../components/footer/Footer'
 
 const Lecturerlogin = () => {
 
@@ -35,7 +34,7 @@ const Lecturerlogin = () => {
          
       <div className="banner-border"></div>
         <div className="gradient h-64"></div>
-      <img className='bannerImg object-cover h-64' src={assests.lecturerImage}/>
+      <img className='bannerImg object-cover h-64' src={assets.lecturerImage}/>
       <div className="login-inner-container">
     <div className="login-form text-center my-6">
         <span>
@@ -61,6 +60,7 @@ const Lecturerlogin = () => {
 
 
     <input type="submit"  value='LOG IN' className='login-btn font-bold shadow-lg mb-10'/>
+   
 
     </form>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import './Login.css'
-import { assests } from '../../assets/assests'
+import { assets } from '../../assets/assets'
 import { NavLink } from 'react-router-dom'
 
 
@@ -10,7 +10,7 @@ const Login = () => {
     <div className='login '>
        <div className="banner-border"></div>
        <div className="gradient h-64"></div>
-      <img className='bannerImg h-64' src={assests.adminBlock}/>
+      <img className='bannerImg h-64' src={assets.adminBlock}/>
       <div className="login-links mx-4">
       <p>ARE YOU</p>
       <div className="button-container space-x-4">
