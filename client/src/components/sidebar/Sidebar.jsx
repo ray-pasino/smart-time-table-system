@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Sidebar.css'
 import { assets } from '../../assets/assets'
-import { faL } from '@fortawesome/free-solid-svg-icons'
+
 
 const Sidebar = ({isClosing , toggleshowSidebar}) => {
 

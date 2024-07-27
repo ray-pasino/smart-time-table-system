@@ -20,7 +20,16 @@ const App = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [isClicked2, setIsClicked2] = useState(false); 
   const [seePassword, setSeePassword] = useState(false);
-  
+  const [opened, setOpened] = useState(false)
+
+
+  //slider useState
+  const [select, setisSelected] = useState(false)
+  const [select1, setisSelected1] = useState(false)
+  const [select2, setisSelected2] = useState(false)
+  const [select3, setisSelected3] = useState(false)
+  const [select4, setisSelected4] = useState(false)
+
 
   const location = useLocation()
 
@@ -43,7 +52,7 @@ const App = () => {
       <Route path='/verifystudentinfo' element={<Verifystudent isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2}/>}/>
       <Route path='/verifylecturerinfo' element={<Verifylecturer isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2}/>}/>
       <Route path='/verifyadministratorinfo' element={<Verifyadministrator isClicked={isClicked} setIsClicked={setIsClicked} isClicked2={isClicked2} setIsClicked2={setIsClicked2}/>}/>
-      <Route path='/administrator' element={<Administrator/>} />
+      <Route path='/administrator' element={<Administrator select={select} setisSelected={setisSelected} select1={select1} setisSelected1={setisSelected1} select2={select2} setisSelected2={setisSelected2} select3={select3} setisSelected3={setisSelected3} select4={select4} setisSelected4={setisSelected4}/>} />
     </Routes>
 
     {showBannerandFooter  && <Footer/> }
