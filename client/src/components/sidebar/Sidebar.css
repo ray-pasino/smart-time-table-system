@@ -79,11 +79,17 @@
 
 @media (min-width:640px) {
     .sidebar{
-        width: 40vw;
+        width: 60vw;
     }
 }
 
 @media (min-width:768px) {
+    .sidebar{
+        width: 40vw;
+    }
+}
+
+@media (min-width:1200px) {
     .sidebar{
         width: 20vw;
     }

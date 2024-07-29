@@ -3,10 +3,12 @@ import './Sidebar.css'
 import { assets } from '../../assets/assets'
 
 
+
+
 const Sidebar = ({isClosing , toggleshowSidebar}) => {
 
 
-  const [select, setisSelected] = useState(false)
+  const [select, setisSelected] = useState(true)
   const [select1, setisSelected1] = useState(false)
   const [select2, setisSelected2] = useState(false)
   const [select3, setisSelected3] = useState(false)
@@ -94,6 +96,7 @@ const Sidebar = ({isClosing , toggleshowSidebar}) => {
 
       </div>
     </div>
+
     </>
   )
 }

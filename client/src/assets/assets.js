@@ -11,6 +11,7 @@ import viewtimetable from './view-time-table.png'
 import personicon from './person-icon.png'
 import courseicon from './course-icon.png'
 import timeicon from './time-icon.png'
+import clockPhoto from './clockandbooks.png'
 
 export const assets = {
     lecturerImage,
@@ -25,7 +26,8 @@ export const assets = {
     viewtimetable,
     personicon,
     courseicon,
-    timeicon
+    timeicon,
+    clockPhoto
 }
 
 

@@ -1,10 +1,16 @@
+/* @import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-react-calendars/styles/material.css";
+ */
+
 .createtimetable{
-    background-color: white;
-    height: 50vh;
+    background-color:  #D9D9D9;
+    height: 60vh;
     width: 60vw;
     margin-left: 20vw;
     position: absolute;
     z-index: 2;
+    animation: fade-In 1s;
 }
 
 .createtimetable-shadow{
@@ -16,10 +22,52 @@
 }
 
 
+.heading{
+    background-image: linear-gradient(to right, #252B5F,  #A39577);
+    border-radius: 0 0 18px 18px;
+}
+
+
+input{
+    background-color:  #D9D9D9;
+    border: 1px solid #000;
+}
+
+select{
+    border: 1px solid black;
+}
+
 
 @media (min-width:640px) {
     .createtimetable{
         width: 40vw;
         margin-left: 30vw;
+        height: 65vh;
+    }
+}
+
+@media (min-width:768px) {
+    .createtimetable{
+        height: 67vh;
+
+    }
+}
+
+@media (min-width:1200px) {
+    .createtimetable{
+        height: 67vh;
+
+    }
+}
+@keyframes fade-In {
+
+
+    0%{
+        opacity: 0.3;
+    }
+
+
+    100%{
+        opacity: 1;
     }
 }
