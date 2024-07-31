@@ -1,96 +1,53 @@
 .sidebar{
-    width: 50vw;
+    width: 35vw;
     height: 100vh;
     background-color: #EFEAEA;
-    animation: slideIn 0.5s;
 }
 
-.shadow{
-    background-color: #00000090;
-    animation:fadeIn 0.5s;
+.SidebarList{
+    height: auto;
+    width: 100%;
 }
 
-.fadeShadow{
-    background-color: #00000090;
-    animation:fadeOut 0.5s;
+.SidebarList .row{
+    width: 96%;
+    height: 62px;
 }
 
-.slideout{
-    animation: slideOut 0.5s;
-}
-
-.selected{
-    border: 2px solid #252B5F;
+.SidebarList .row:hover{
+    cursor: pointer;
+    border: 1px solid #252B5F;
     border-radius: 12px;
-    padding: 15px 5px;
 }
 
-@keyframes slideIn {
-    0%{
-        transform: translateX(-100%);
-    }
-
-    100%{
-        transform: translateX(0);
-    }
+.active-link{
+    border: 1px solid #252B5F;
+    border-radius: 12px;
 }
 
-
-@keyframes slideOut {
-    0%{
-        transform: translateX(0);
-    }
-
-    100%{
-        transform: translateX(-100%);
-    }
+.row .icon{
+    flex:30%;
+    display:grid;
+    place-items: center;
 }
 
-
-@keyframes fadeIn {
-    0%{
-        opacity: 0;
-    }
-
-    50%{
-        opacity: 0.5;
-    }
-
-    100%{
-        opacity: 1;
-    }
+.row .title{
+    flex: 70%;
+    font-size: 18px;
+    color: #666;
 }
 
 
 
-@keyframes fadeOut {
-    0%{
-        opacity: 1;
-    }
-
-    50%{
-        opacity: 0.5;
-    }
-
-    100%{
-        opacity: 0;
-    }
-}
-
-@media (min-width:640px) {
+@media (min-width:768px) {
     .sidebar{
         width: 60vw;
     }
 }
 
-@media (min-width:768px) {
-    .sidebar{
-        width: 40vw;
-    }
-}
 
 @media (min-width:1200px) {
     .sidebar{
-        width: 20vw;
+        width: 17vw;
     }
 }

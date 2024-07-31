@@ -56,7 +56,7 @@ const Administratorlogin = ({isClicked, setIsClicked, isClicked2, setIsClicked2,
       <NavLink to='/verifyadministratorinfo' className='reset font-bold'>RESET</NavLink>
     </div>
 
-    <NavLink to='/administrator'>
+    <NavLink to='/dashboard'>
     <input type="submit"  value='LOG IN' className='login-btn font-bold shadow-lg mb-10'/>
     </NavLink>
 

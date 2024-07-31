@@ -1,11 +1,7 @@
-.AdminHeader{
-    height: 10vh;
-}
-
 .adminheadergradient{
     background-image: linear-gradient(to right, #252B5F,  #A39577);
     height: 10vh;
-    width: 100vw;
+    width: 65vw;
 }
 
 .shield{
@@ -14,9 +10,6 @@
     gap: 45vw;
 }
 
-.pseudoelement{
-    margin-right: 20vw;
-}
 
 @media (min-width:640px) {
     .shield{
@@ -30,10 +23,20 @@
     .shield{
         gap:70vw
     }
+
+    .adminheadergradient{
+        width: auto;
+    }
 }
 
-@media (min-width:1024px) {
+ @media (min-width:1024px) {
     .shield{
         gap:80vw
     }
 }
+
+@media (min-width:1200px) {
+    .adminheadergradient{
+        width: 83vw;
+    }
+} 

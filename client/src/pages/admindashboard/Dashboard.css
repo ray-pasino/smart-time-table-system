@@ -1,0 +1,53 @@
+.dashboard{
+    width: 100vw;
+    height: 100vh;
+}
+
+.small-title-container{
+    background-color: #EFEAEA;
+
+}
+
+.lecture-rooms{
+    background-color: #E7AD29;
+}
+
+.courses{
+    background-color: #CC8383;
+    height: 180px;
+}
+
+.lecturers{
+    background-color: #7A75C1;
+    height: 180px;
+}
+
+.classes{
+    background-color: #A9A130;
+    height: 180px;
+}
+
+.generate-timetable-modal-shadow{
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000090;
+    position: absolute;
+}
+
+
+.generate-timetable-modal{
+    height: 90vh;
+    width: 23vw;
+    z-index: 2;
+    position: absolute;
+}
+
+
+.modal-title{
+    background-image: linear-gradient(to right, #252B5F,  #A39577);
+}
+
+.modal-body{
+    background-color: #D9D9D9;
+}

@@ -4,14 +4,19 @@ import studygroup from './study-group-african-people.jpg'
 import logo from './logo.png'
 import admin from './sysadmin_03.jpg'
 import adminprofile from './adminprofile.png'
-import caretdown from './caretdown.png'
-import timetableicon from './tiemtable-icon.png'
-import generatetimetableicon from './generate-time-table-icon.png'
-import viewtimetable from './view-time-table.png'
-import personicon from './person-icon.png'
 import courseicon from './course-icon.png'
 import timeicon from './time-icon.png'
 import clockPhoto from './clockandbooks.png'
+import dashboardvector from './dashboardvector.png'
+import lecturerooms from './lectureroom.png'
+import personicon from './person-icon.png'
+import tiemtableicon from './tiemtable-icon.png'
+import dashboardvectorwhite from './whiteVector.png'
+import whitelectureroom from './whitelectureroom.png'
+import courses from './courses.png'
+import cap from './cap.png'
+import classes from './classes.png'
+import whiteTimetableIcon from './whiteTimetable Icon.png'
 
 export const assets = {
     lecturerImage,
@@ -19,15 +24,15 @@ export const assets = {
     studygroup,
     logo,
     admin,
-    adminprofile,
-    caretdown,
-    timetableicon,
-    generatetimetableicon,
-    viewtimetable,
+    clockPhoto,
     personicon,
-    courseicon,
-    timeicon,
-    clockPhoto
+    tiemtableicon,
+    dashboardvectorwhite,
+    whitelectureroom,
+    courses,
+    cap,
+    classes,
+    whiteTimetableIcon
 }
 
 
@@ -66,3 +71,36 @@ export const lecturerInfo =
         campus : "MAIN CAMPUS - ABEKA",
         profileImage : adminprofile
 }   
+
+
+export const sidebardata = [
+    {
+        title : "Dashboard",
+        icon : dashboardvector,
+        link : "/dashboard"
+    },
+
+    {
+        title : "Lecture Rooms",
+        icon : lecturerooms,
+        link : "/lecturerooms"
+    },
+
+    {
+        title : "Lectures Available",
+        icon : personicon,
+        link : "/lecturersavailable"
+    },
+
+    {
+        title : "Courses Available",
+        icon : courseicon,
+        link : "/coursesavailable"
+    },
+
+    {
+        title : "Time & Schedule",
+        icon : timeicon,
+        link : "/timeandschedule"
+    }
+]
