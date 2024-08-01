@@ -93,8 +93,72 @@ const Dashboard = () => {
             <>
             <div className='generate-timetable-modal-shadow' onClick={closeModal}></div>
               <div className='generate-timetable-modal rounded-md'>
-                <div className="modal-title h-12">hey</div>
-                <div className="modal-body">hello world</div>
+                <div className="modal-title text-center text-2xl p-4 text-white font-bold">CERATE NEW TIME TABLE</div>
+                <form className="modal-body space-y-10">
+
+                  <div className="timetable-name mx-20 flex flex-col mt-10">
+                    <label htmlFor="time-table-name" className='text-2xl'>Timetable Name</label>
+                    <input type="text" id='time-table-name' className='bg-inherit rounded-md'/>
+                  </div>
+
+                  <div className="academic-period mx-20">
+                    <label htmlFor="semester" className='block text-2xl'>Academic Period</label>
+                    <select name="semester" id="semester" className='rounded-md'>
+                      <option value="Semester 1">Semester 1</option>
+                      <option value="Semester 2">Semester 2</option>
+                    </select>
+                  </div>
+
+                  <div className="week-days mx-20">
+                    <h2 className='text-2xl'>Select Days</h2>
+                    </div>
+                    
+
+                    <div className="flex flex-col mx-20">
+
+                    <div className='flex'>
+                    <input type="checkbox"  value="Monday"  className='day-box h-4 mt-1'/>
+                    <label htmlFor="Monday" id='day-label'>Monday</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox"  value="Tuesday"  className='day-box h-4 mt-1'/>
+                    <label htmlFor="Tuesday" id='day-label'>Tuesday</label>
+                    </div>
+
+
+                    <div>
+                    <input type="checkbox"  value="Wednesday"  className='day-box h-4 mt-1'/>
+                    <label htmlFor="Wednesday" id='day-label'>Wednesday</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox"  value="Thursday"  className='day-box h-4 mt-1'/>
+                    <label htmlFor="Thursday" id='day-label'>Thursday</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox"  value="Friday"  className='day-box h-4 mt-1'/>
+                    <label htmlFor="Friday" id='day-label'>Friday</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox"  value="Saturday"  className='day-box h-4 mt-1'/>
+                    <label htmlFor="Saturday" id='day-label'>Saturday</label>
+                    </div>
+
+                    <div>
+                    <input type="checkbox"  value="Sunday"  className='day-box h-4 mt-1'/>
+                    <label htmlFor="Sunday" id='day-label'>Sunday</label>
+                    </div>
+
+                    </div>
+
+                    <div className="flex mx-20 space-x-40 text-white font-bold button-case">
+                      <button className='cancel rounded-md p-2 w-40'onClick={closeModal} >Cancel</button>
+                      <button className='generate rounded-md p-2 w-40'>Generate</button>
+                    </div>
+                </form>
             </div>
               </>
            }

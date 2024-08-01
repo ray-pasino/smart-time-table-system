@@ -102,5 +102,11 @@ export const sidebardata = [
         title : "Time & Schedule",
         icon : timeicon,
         link : "/timeandschedule"
+    },
+
+    {
+        title : "Classes",
+        icon : classes,
+        link : "/timeandschedule"
     }
 ]
