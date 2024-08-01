@@ -17,6 +17,7 @@ import courses from './courses.png'
 import cap from './cap.png'
 import classes from './classes.png'
 import whiteTimetableIcon from './whiteTimetable Icon.png'
+import dClasses from './d-classes.png'
 
 export const assets = {
     lecturerImage,
@@ -106,7 +107,7 @@ export const sidebardata = [
 
     {
         title : "Classes",
-        icon : classes,
-        link : "/timeandschedule"
+        icon : dClasses,
+        link : "/classes"
     }
 ]

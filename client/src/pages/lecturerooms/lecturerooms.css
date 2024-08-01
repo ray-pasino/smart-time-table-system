@@ -1,4 +1,23 @@
-.Lecturerooms{
+.lecturerooms{
     width: 100vw;
     height: 100vh;
 }
+
+.search-container{
+    border: 1px solid #b4afaf;
+}
+
+
+.search-icon{
+    color: #b4afaf;
+}
+
+.search-input{
+    color: black;
+}
+
+
+.add-room{
+    background-color: #C9AF88;
+}
+

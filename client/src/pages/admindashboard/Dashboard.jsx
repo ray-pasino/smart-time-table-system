@@ -92,7 +92,7 @@ const Dashboard = () => {
             {buttonClicked && 
             <>
             <div className='generate-timetable-modal-shadow' onClick={closeModal}></div>
-              <div className='generate-timetable-modal rounded-md'>
+              <div className='generate-timetable-modal rounded-2xl'>
                 <div className="modal-title text-center text-2xl p-4 text-white font-bold">CERATE NEW TIME TABLE</div>
                 <form className="modal-body space-y-10">
 

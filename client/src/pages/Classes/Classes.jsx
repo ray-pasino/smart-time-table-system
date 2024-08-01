@@ -1,14 +1,15 @@
 import React from 'react'
-import './Lecturersavailabe.css'
+import './Classes.css'
 import Sidebar from '../../components/sidebar/Sidebar'
+import './Classes.css'
 import Adminheader from '../../components/Adminheader/Adminheader'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
-const Lecturersavailabe = () => {
+const Classes = () => {
   return (
-    <div className='Lecturersavailabe'>
-   <div className='flex'>
+    <div>
+       <div className='flex'>
         <Sidebar/>
         <div className="right">
         <Adminheader/>           
@@ -22,7 +23,7 @@ const Lecturersavailabe = () => {
             </div>
 
             <div className="add-room rounded-xl text-white text-xl font-bold p-2 shadow-md">
-              <p>Add New Lecturer</p>
+              <p>Add New Class</p>
             </div>
 
           </div>
@@ -40,4 +41,4 @@ const Lecturersavailabe = () => {
   )
 }
 
-export default Lecturersavailabe
+export default Classes
