@@ -88,7 +88,7 @@ export const sidebardata = [
     },
 
     {
-        title : "Lectures Available",
+        title : "Lecturers Available",
         icon : personicon,
         link : "/lecturersavailable"
     },

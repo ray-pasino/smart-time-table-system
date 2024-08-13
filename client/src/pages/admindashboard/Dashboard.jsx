@@ -155,8 +155,8 @@ const Dashboard = () => {
                     </div>
 
                     <div className="flex mx-20 space-x-40 text-white font-bold button-case">
-                      <button className='cancel rounded-md p-2 w-40'onClick={closeModal} >Cancel</button>
-                      <button className='generate rounded-md p-2 w-40'>Generate</button>
+                      <button className='cancel rounded-md p-2 w-40 mb-8'onClick={closeModal} >Cancel</button>
+                      <button className='generate rounded-md p-2 w-40 mb-8'>Generate</button>
                     </div>
                 </form>
             </div>

@@ -9,6 +9,14 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const Lecturerooms = () => {
 
+  const [clicked, setClicked] = useState(false)
+
+  const handleClicked = ()=>{
+    setClicked(true)
+  }
+
+    const handleClosed = () =>  setClicked(false)
+
   return (
     <div className='lecturerooms'>
       <div className='flex'>
@@ -24,19 +32,43 @@ const Lecturerooms = () => {
                  <FontAwesomeIcon icon={faSearch} className='mt-2 search-icon text-2xl'/>
             </div>
 
-            <div className="add-room rounded-xl text-white text-xl font-bold p-2 shadow-md">
+            <div className="add-room rounded-xl text-white text-xl font-bold p-2 shadow-md cursor-pointer" onClick={handleClicked}>
               <p>Add New Room</p>
             </div>
 
           </div>
+        </div>
+        </div>
 
+
+
+
+
+      {clicked &&
       
+      
+          <>
+          <div className='modal-shadow' onClick={handleClosed}></div>
+          <div className="add-room-modal rounded-md">
+          <div className="add-room-modal-title font-bold text-center text-2xl text-white p-4">ADD LECTURE ROOM</div>
+          <form className="modal-body p-6 space-y-10">
+
+            <div className="room-name flex flex-col text-xl">
+              <label htmlFor="room-name">Room Name</label>
+              <input type="text" className='room-input bg-inherit rounded-xl'/>
+            </div>
 
 
-
-
+        <div className="flex space-x-40 text-white font-bold button-case">
+                  <button className='cancel rounded-md p-2 w-40'onClick={handleClosed} >Cancel</button>
+                  <button className='generate rounded-md p-2 w-40'>Add Room</button>
         </div>
-        </div>
+
+
+          </form>
+          </div>
+          </>
+      }
        
       </div>
     </div>
