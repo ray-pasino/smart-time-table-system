@@ -43,7 +43,7 @@ const Administratorlogin = ({isClicked, setIsClicked, isClicked2, setIsClicked2,
 
       <form className="login-form text-center mx-14">
     <div onClick={toggleclick} className={isClicked ? 'active-input-box mb-4' : 'input-box mb-4'} id="input">
-    <input type="number" name="id" placeholder='Lecturer ID' required/>
+    <input type="number" name="id" placeholder='Administrator ID' required/>
     </div>
 
   <div onClick={toggleclick2} className={isClicked2 ? 'active-input-box mb-2' : 'input-box mb-2'} id="input">

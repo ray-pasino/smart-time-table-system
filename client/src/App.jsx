@@ -16,6 +16,7 @@ import Coursesavailable from './pages/Coursesavailable/Coursesavailable'
 import Timeandschedule from './pages/Timeandschedule/Timeandschedule'
 import Lecturersavailabe from './pages/lecturersavailabe/Lecturersavailabe'
 import Classes from './pages/Classes/Classes'
+import Lecturerinfo from './pages/lecturerinfo/Lecturerinfo'
 
 
 
@@ -55,6 +56,7 @@ const App = () => {
       <Route path='/coursesavailable' element={<Coursesavailable/>}/>
       <Route path='/timeandschedule' element={<Timeandschedule/>}/>
       <Route path='/classes' element={<Classes/>}/>
+      <Route path='/lecturerinfo' element={<Lecturerinfo/>}/>
     </Routes>
 
     {showBannerandFooter  && <Footer/> }
