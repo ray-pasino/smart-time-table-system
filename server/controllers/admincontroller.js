@@ -25,7 +25,7 @@ const loginAdmin = async(req,res)=>{
         res.json({success:true,token})
     }catch(error){
         console.log(error)
-        res.json({succes:false, message:"Error"})
+        res.json({succes:false, message:error.message})
     }
 }
 

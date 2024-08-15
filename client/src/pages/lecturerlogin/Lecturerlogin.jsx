@@ -103,7 +103,7 @@ const Lecturerlogin = () => {
     </div>
 
 
-    <input type="submit"  value='LOG IN' className='login-btn font-bold shadow-lg mb-10'/>
+    <input type="submit"  value='LOG IN' className='login-btn font-bold shadow-lg mb-10 cursor-pointer'/>
    
 
     </form>

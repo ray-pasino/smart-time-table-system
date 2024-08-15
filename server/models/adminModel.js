@@ -7,7 +7,8 @@ const adminSchema = new mongoose.Schema({
     email:{type:String, required:true, unique:true},
     phone:{type:Number, required:true},
     team:{type:String, requied:true},
-    campus:{type:String, requied:true}
+    campus:{type:String, requied:true},
+    password:{type:String, required:true}
 })
 
 const adminModel = mongoose.models.admin || mongoose.model("admin", adminSchema)
