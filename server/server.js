@@ -3,6 +3,7 @@ const cors = require('cors')
 const connectDB = require('./config/db')
 const lecturerRouter = require('./routes/lecturerroutes')
 const adminRouter = require('./routes/adminroutes')
+const { authenticateUser, showinfo } = require('./controllers/admincontroller')
 require('dotenv/config');
 
 //app config
@@ -20,6 +21,7 @@ connectDB()
 //api endpoint 
 app.use("/api/lecturer", lecturerRouter)
 app.use("/api/admin", adminRouter)
+app.use("/api/admin/info", authenticateUser, showinfo)
 
 app.get("/", (req,res)=>{
     res.send('gctu time table')

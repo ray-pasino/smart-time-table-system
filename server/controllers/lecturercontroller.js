@@ -18,7 +18,7 @@ const loginLecturer = async(req,res)=>{
         const isMatcch = await bcrypt.compare(password,user.password)
 
         if(!isMatcch){
-            return res.json({succes:false, message:"Email or password is incorrect"})
+            return res.json({succes:false, message:"ID or password is incorrect"})
         }
 
         const token = createToken(user._id)

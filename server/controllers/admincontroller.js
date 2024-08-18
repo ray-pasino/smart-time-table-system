@@ -18,7 +18,7 @@ const loginAdmin = async(req,res)=>{
         const isMatcch = await bcrypt.compare(password,user.password)
 
         if(!isMatcch){
-            return res.json({succes:false, message:"Email or password is incorrect"})
+            return res.json({succes:false, message:"ID or password is incorrect"})
         }
 
         const token = createToken(user._id)
@@ -83,4 +83,41 @@ const registerAdmin = async(req,res)=>{
 }
 
 
-module.exports = {loginAdmin, registerAdmin}
+// Middleware to authenticate and extract user ID from JWT
+const authenticateUser = (req, res, next) => {
+    const token = req.header('Authorization').replace('Bearer ', '');
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = decoded;
+        next();
+    } catch (error) {
+        return res.status(401).json({ success: false, message: "Authentication failed" });
+    }
+};
+
+
+
+// Show specific logged-in user info
+const showinfo = async (req, res) => {
+    try {
+        // Get user ID from the request (from JWT)
+        const userId = req.user.id;
+
+        // Find the user in the database by ID
+        const user = await adminModel.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
+
+        // Send back the user data
+        res.json({ success: true, data: user });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Error retrieving user info" });
+    }
+};
+
+
+module.exports = {loginAdmin, registerAdmin, showinfo, authenticateUser}
