@@ -65,6 +65,7 @@ const Administratorlogin = ({isClicked, setIsClicked, isClicked2, setIsClicked2,
       }
 
 
+      
   return (
     <div className='adminstratorlogin'>
          <div className="banner-border"></div>

@@ -1,8 +1,6 @@
 import React, {useEffect ,useContext, useState} from 'react'
 import './Adminheader.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faUser} from '@fortawesome/free-solid-svg-icons'
-import {adminstratorinfo} from '../../assets/assets'
+import {assets} from '../../assets/assets'
 import { StoreContext } from '../../context/Storecontext'
 import axios from "axios"
 
@@ -11,6 +9,30 @@ const Adminheader = () => {
 
   const [adminName, setAdminName] = useState('');  // State to store the admin's name
   const { url, token } = useContext(StoreContext);
+  const [drop, setDrop] = useState(false)
+
+
+  const toggleDropdown = ()=>{
+    setDrop(!drop)
+  }
+
+  const handleLogout = async () => {
+
+    try {
+      const response = await axios.post(`${url}/api/administratorlogout`, {}, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (response.data.success) {
+        setToken(null); // Clear the token from the context
+        localStorage.removeItem('token'); // Remove the token from local storage
+      }
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  }
+
 
   useEffect(() => {
     const fetchAdminInfo = async () => {
@@ -40,8 +62,9 @@ const Adminheader = () => {
          <div className="admin-profile my-4">
             {adminName.toUpperCase()}
             <div className="text-xs ms-6 text-zinc-400">Administrator</div>
+            <div className={`${drop ? 'block text-red-700 p-1.5 pl-12 w-36 logout-popover rounded-md cursor-default' : 'hidden'}`} onClick={handleLogout}>Logout</div>
             </div>
-         <FontAwesomeIcon icon={faUser} className='my-4 text-xl cursor-pointer'/>
+         <img src={assets.dropdown} className='h-4 my-4' onClick={toggleDropdown}/>
         </div>
     </div>
     </div>
@@ -50,3 +73,5 @@ const Adminheader = () => {
 }
 
 export default Adminheader
+
+

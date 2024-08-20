@@ -83,6 +83,7 @@ const registerAdmin = async(req,res)=>{
 }
 
 
+
 // Middleware to authenticate and extract user ID from JWT
 const authenticateUser = (req, res, next) => {
     const token = req.header('Authorization').replace('Bearer ', '');
@@ -120,4 +121,20 @@ const showinfo = async (req, res) => {
 };
 
 
-module.exports = {loginAdmin, registerAdmin, showinfo, authenticateUser}
+// logout user
+const logoutUser = async (req, res) => {
+    try {
+      // Remove the JWT token from the request headers
+      req.headers.authorization = '';
+  
+      // Return a success response
+      res.json({ success: true, message: 'Logged out successfully' });
+    } catch (error) {
+      console.log(error);
+      res.json({ success: false, message: 'Error logging out' });
+    }
+  };
+
+
+
+module.exports = {loginAdmin, registerAdmin, showinfo, authenticateUser, logoutUser}

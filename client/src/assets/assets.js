@@ -18,6 +18,7 @@ import cap from './cap.png'
 import classes from './classes.png'
 import whiteTimetableIcon from './whiteTimetable Icon.png'
 import dClasses from './d-classes.png'
+import dropdown from './dropdown.png'
 
 export const assets = {
     lecturerImage,
@@ -33,7 +34,8 @@ export const assets = {
     courses,
     cap,
     classes,
-    whiteTimetableIcon
+    whiteTimetableIcon,
+    dropdown
 }
 
 
