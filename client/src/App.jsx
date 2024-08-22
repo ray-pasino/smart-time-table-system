@@ -17,6 +17,8 @@ import Timeandschedule from './pages/Timeandschedule/Timeandschedule'
 import Lecturersavailabe from './pages/lecturersavailabe/Lecturersavailabe'
 import Classes from './pages/Classes/Classes'
 import Lecturerinfo from './pages/lecturerinfo/Lecturerinfo'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -39,7 +41,7 @@ const App = () => {
 
   return (
     <div className='md:flex'>
-      
+    <ToastContainer/>
       {showBannerandFooter  && <BannerInfo/> }
       
     <Routes>

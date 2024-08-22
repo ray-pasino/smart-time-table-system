@@ -122,19 +122,10 @@ const showinfo = async (req, res) => {
 
 
 // logout user
-const logoutUser = async (req, res) => {
-    try {
-      // Remove the JWT token from the request headers
-      req.headers.authorization = '';
-  
-      // Return a success response
-      res.json({ success: true, message: 'Logged out successfully' });
-    } catch (error) {
-      console.log(error);
-      res.json({ success: false, message: 'Error logging out' });
-    }
-  };
-
+const logoutUser = (req, res) => {
+    // Clear the token on the client-side; no need to do much here
+    res.json({ success: true, message: "Logged out successfully" });
+};
 
 
 module.exports = {loginAdmin, registerAdmin, showinfo, authenticateUser, logoutUser}

@@ -85,7 +85,67 @@ const registerLecturer = async(req,res)=>{
 }
 
 
+// add lecturer
+const addLecturer = async(req,res)=>{
+    const lecturer = new lecturerModel({
+        name:req.body.name,
+        id:req.body.id,
+        course:req.body.course,
+        phone:req.body.phone,
+        email:req.body.email
+    })
+
+    try {
+        await lecturer.save()
+        res.json({success:true, message:"Lecturer Added"})
+    }catch(error){
+        console.log(error)
+        res.json({success:false, message:"Error Adding Lecturer"})
+    }
+}
 
 
+// list lecturers
+const listLecturer = async(req,res)=>{
+    try{
+        const lecturer = await lecturerModel.find({})
+        res.json({success:true, data:lecturer})
+    }catch(error){
+        console.log(error)
+        res.json({success:false, message:"Error Listing Lecturers"})
+    }
+}
 
-module.exports = {loginLecturer, registerLecturer}
+//remove lecturer
+const removeLecturer = async(req,res)=>{
+    try{
+        const lecturer = await lecturerModel.findById(req.body.id)
+        await lecturerModel.findByIdAndDelete(req.body.id)
+        res.json({success:true, message:"Lecrurer Deleted"})
+    }catch(error){
+        console.log(error)
+        res.json({success:true, message:"Error"})
+    }
+}
+
+
+//update lecturer
+const updateLecturer = async(req,res)=>{
+    try{
+        const lecturer = await lecturerModel.findByIdAndUpdate(req.params.id, {
+            name:req.body.name,
+            id:req.body.id,
+            course:req.body.course,
+            phone:req.body.phone,
+            email:req.body.email
+        }, {new:true})
+        res.json({success:true, message:"Lecturer Info Updated"})
+    }catch(error){
+        console.log(error)
+        res.json({success:false, message:"Error Updating Lecturer Info"})
+    }
+
+}
+
+module.exports = {loginLecturer, registerLecturer, addLecturer, listLecturer, removeLecturer, updateLecturer}
+

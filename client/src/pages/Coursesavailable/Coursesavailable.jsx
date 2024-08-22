@@ -33,8 +33,10 @@ const Coursesavailable = () => {
             <div className="add-room rounded-xl text-white text-xl font-bold p-2 shadow-md cursor-pointer" onClick={handleClicked}>
               <p>Add New Course</p>
             </div>
-
           </div>
+
+          {/* list courses */}
+
         </div>
         </div>
        
@@ -49,7 +51,7 @@ const Coursesavailable = () => {
       <form className="modal-body p-6 space-y-10">
 
         <div className="lecturer-id flex flex-col text-xl">
-          <label htmlFor="course-id">Course ID</label>
+          <label htmlFor="course-id">Course Code</label>
           <input type="text" className='course-input bg-inherit rounded-xl'/>
         </div>
 

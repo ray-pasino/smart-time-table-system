@@ -2,36 +2,42 @@ import React, {useEffect ,useContext, useState} from 'react'
 import './Adminheader.css'
 import {assets} from '../../assets/assets'
 import { StoreContext } from '../../context/Storecontext'
+import { useNavigate } from 'react-router'
 import axios from "axios"
 
 
 const Adminheader = () => {
 
   const [adminName, setAdminName] = useState('');  // State to store the admin's name
-  const { url, token } = useContext(StoreContext);
+  const { url, token, setToken} = useContext(StoreContext);
   const [drop, setDrop] = useState(false)
-
+  const navigate = useNavigate()
 
   const toggleDropdown = ()=>{
     setDrop(!drop)
   }
 
-  const handleLogout = async () => {
-
-    try {
-      const response = await axios.post(`${url}/api/administratorlogout`, {}, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      if (response.data.success) {
-        setToken(null); // Clear the token from the context
-        localStorage.removeItem('token'); // Remove the token from local storage
+//handle logout function goes here
+const handleLogout = async () => {
+  try {
+    // Call the logout API to notify the server (optional)
+    await axios.post(`${url}/api/admin/administratorlogout`, {}, {
+      headers: {
+        Authorization: `Bearer ${token}`
       }
-    } catch (error) {
-      console.error('Error logging out:', error);
-    }
+    });
+
+    // Clear the token from the context (or localStorage/sessionStorage if you're using that)
+    setToken(null);  // Update the StoreContext to clear the token
+    localStorage.removeItem('token');  // If you use localStorage to store the token
+
+    // Redirect the user to the login page
+    navigate('/administratorlogin');
+  } catch (error) {
+    console.error('Error during logout:', error);
   }
+}
+
 
 
   useEffect(() => {

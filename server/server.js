@@ -4,6 +4,8 @@ const connectDB = require('./config/db')
 const lecturerRouter = require('./routes/lecturerroutes')
 const adminRouter = require('./routes/adminroutes')
 const { authenticateUser, showinfo } = require('./controllers/admincontroller')
+const roomRouter = require('./routes/lectureroomroutes')
+const courseRouter = require('./routes/courseroutes')
 require('dotenv/config');
 
 //app config
@@ -13,7 +15,12 @@ const PORT = 3000
 
 //middleware
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: ['http://localhost:5173'], // Allow requests from this origin
+    credentials: true, // Allow credentials (e.g., cookies) to be sent in requests
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these HTTP methods
+    headers: ['Content-Type', 'Authorization'] // Allow these headers
+}))
 
 //db connection
 connectDB()
@@ -22,6 +29,8 @@ connectDB()
 app.use("/api/lecturer", lecturerRouter)
 app.use("/api/admin", adminRouter)
 app.use("/api/admin/info", authenticateUser, showinfo)
+app.use("/api/room", roomRouter)
+app.use("/api/course", courseRouter)
 
 app.get("/", (req,res)=>{
     res.send('gctu time table')
