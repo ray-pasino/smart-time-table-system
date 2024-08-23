@@ -98,7 +98,9 @@ const fetchCourses = async () => {
   try {
     const response = await axios.get(`${url}/api/course/list`);
     if (response.data.success) {
-      setCourses(response.data.data);
+      // Map through the array to get only the course names
+         const courseNames = response.data.data.map(course => course.name);
+         setCourses(courseNames);
     } else {
       toast.error("Failed to fetch courses.");
     }
@@ -246,8 +248,8 @@ useEffect(() => {
     >
       <option value="">Select a course</option>
       {courses.map((course, i) => (
-        <option key={i} value={course._id}>{course.name}</option>
-      ))}
+    <option key={i} value={course}>{course}</option> // Use course directly as it's now just the name
+  ))}
     </select>
         </div>
 
@@ -294,7 +296,18 @@ useEffect(() => {
 
         <div className="Course flex flex-col text-xl">
           <label htmlFor="Course">Course</label>
-          <input type="text" className='lecturer-input bg-inherit rounded-xl' name='course' onChange={onChangeHandler} value={data.course}/>
+          <select
+      name="course"
+      id="course-select"
+      className="w-22 lecturer-input bg-inherit rounded-xl"
+      onChange={onChangeHandler}
+      value={data.course}
+    >
+      <option value="">Select a course</option>
+      {courses.map((course, i) => (
+    <option key={i} value={course}>{course}</option> // Use course directly as it's now just the name
+  ))}
+    </select>
         </div>
 
         <div className="Telephone-No flex flex-col text-xl">

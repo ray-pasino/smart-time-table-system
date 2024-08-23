@@ -81,3 +81,6 @@ background-color: #252B5F;
     height: 68vh;
 }
 
+.number {
+    overflow-y: hidden;
+}

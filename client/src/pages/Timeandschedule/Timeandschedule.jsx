@@ -242,13 +242,14 @@ useEffect(()=>{
     <>
        <div className='modal-shadow' onClick={handleCloseEdit}></div>
       <div className="add-room-modal rounded-md">
-      <div className="add-room-modal-title font-bold text-center text-2xl text-white p-4">ADD TIME SLOT</div>
+      <div className="add-room-modal-title font-bold text-center text-2xl text-white p-4">EDIT TIME SLOT</div>
       <form className="modal-body p-6 space-y-10" onSubmit={oneditsubmitHandler}>
 
         <div className="room-name flex flex-col text-xl">
           <label htmlFor="room-name">Time</label>
           <div className='flex space-x-8 ms-24'>
           <select name="startTime" id="time-select" className="w-22" onChange={onChangeHandler} value={data.startTime}>
+          <option>-</option>
                       {generateTimeOptions().map((time, i) => (
                         <option key={i} value={time}>{time}</option>
                       ))}
@@ -257,6 +258,7 @@ useEffect(()=>{
                   <div>TO</div>
 
                   <select name="endTime" id="time-select" className="w-22" onChange={onChangeHandler} value={data.endTime}>
+                  <option>-</option>
                       {generateTimeOptions2().map((time, i) => (
                         <option key={i} value={time}>{time}</option>
                       ))}
