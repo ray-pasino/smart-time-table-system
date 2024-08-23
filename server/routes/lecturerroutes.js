@@ -10,4 +10,5 @@ lecturerRouter.get("/list", listLecturer)
 lecturerRouter.post("/remove", removeLecturer)
 lecturerRouter.put("/update/:id", updateLecturer)
 
+
 module.exports = lecturerRouter

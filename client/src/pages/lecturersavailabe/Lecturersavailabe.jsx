@@ -79,6 +79,7 @@ const onSubmitHandler = async (event) =>{
 
 
 const [list, setList] = useState([])
+const [courses, setCourses] = useState([]);
 
 ///fetching list from the database
 const fetchList = async ()=> {
@@ -90,6 +91,22 @@ const fetchList = async ()=> {
     toast.error("Error")
   }
 }
+
+
+// fetch course
+const fetchCourses = async () => {
+  try {
+    const response = await axios.get(`${url}/api/course/list`);
+    if (response.data.success) {
+      setCourses(response.data.data);
+    } else {
+      toast.error("Failed to fetch courses.");
+    }
+  } catch (error) {
+    toast.error("Error fetching courses.");
+  }
+};
+
 
 // submitting edited info
 const oneditsubmitHandler = async (event)=>{
@@ -129,9 +146,11 @@ const removeItem = async (lecturerId)=>{
   }
 }
 
-useEffect(()=>{
-  fetchList()
-},[])
+useEffect(() => {
+  fetchList();
+  fetchCourses()
+}, []);
+
 
   const [Lclicked, setLClicked] = useState(false)
 
@@ -218,7 +237,18 @@ useEffect(()=>{
 
         <div className="Course flex flex-col text-xl">
           <label htmlFor="Course">Course</label>
-          <input type="text" className='lecturer-input bg-inherit rounded-xl' name='course' onChange={onChangeHandler} value={data.course}/>
+          <select
+      name="course"
+      id="course-select"
+      className="w-22 lecturer-input bg-inherit rounded-xl"
+      onChange={onChangeHandler}
+      value={data.course}
+    >
+      <option value="">Select a course</option>
+      {courses.map((course, i) => (
+        <option key={i} value={course._id}>{course.name}</option>
+      ))}
+    </select>
         </div>
 
         <div className="Telephone-No flex flex-col text-xl">

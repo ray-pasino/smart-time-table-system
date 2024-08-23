@@ -90,16 +90,17 @@ export const sidebardata = [
     },
 
     {
+        title : "Courses Available",
+        icon : courseicon,
+        link : "/coursesavailable"
+    },
+    
+    {
         title : "Lecturers Available",
         icon : personicon,
         link : "/lecturersavailable"
     },
 
-    {
-        title : "Courses Available",
-        icon : courseicon,
-        link : "/coursesavailable"
-    },
 
     {
         title : "Time & Schedule",

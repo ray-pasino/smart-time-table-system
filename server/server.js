@@ -6,6 +6,8 @@ const adminRouter = require('./routes/adminroutes')
 const { authenticateUser, showinfo } = require('./controllers/admincontroller')
 const roomRouter = require('./routes/lectureroomroutes')
 const courseRouter = require('./routes/courseroutes')
+const timeModel = require('./models/timemodule')
+const timeRouter = require('./routes/timeRouter')
 require('dotenv/config');
 
 //app config
@@ -31,6 +33,7 @@ app.use("/api/admin", adminRouter)
 app.use("/api/admin/info", authenticateUser, showinfo)
 app.use("/api/room", roomRouter)
 app.use("/api/course", courseRouter)
+app.use("/api/time", timeRouter)
 
 app.get("/", (req,res)=>{
     res.send('gctu time table')

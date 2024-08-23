@@ -62,4 +62,5 @@ const updateCourse = async(req,res)=>{
 }
 
 
+
 module.exports = {addCourse, listCourse, removeCourse, updateCourse}
