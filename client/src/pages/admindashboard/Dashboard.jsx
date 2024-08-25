@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect} from 'react'
 import './Dashboard.css'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Adminheader from '../../components/Adminheader/Adminheader'
@@ -9,11 +9,71 @@ import axios from "axios"
 
 const Dashboard = () => {
 
+  const {url} = useContext(StoreContext)
   const [buttonClicked, setbuttonClicked] = useState(false)
+  const [lecturerCount, setLecturerCount] = useState(0);
+  const [roomCount, setRoomCount] = useState(0);
+  const [courseCount, setCourseCount] = useState(0);
+  const [classCount, setClassCount] = useState(0);
+  const [timetable, setTimetable] = useState([]);
 
-  
-  const handlebuttonClicked = ()=>{
+  // Fetch data from API
+  const fetchCounts = async () => {
+    try {
+      const [lecturerRes, roomRes, courseRes, classRes] = await Promise.all([
+        axios.get(`${url}/api/lecturer/count`),
+        axios.get(`${url}/api/room/count`),
+        axios.get(`${url}/api/course/count`),
+        axios.get(`${url}/api/class/count`)
+      ]);
+
+      setLecturerCount(lecturerRes.data.count);
+      setRoomCount(roomRes.data.count);
+      setCourseCount(courseRes.data.count);
+      setClassCount(classRes.data.count);
+    } catch (error) {
+      console.error('Error fetching counts:', error);
+    }
+  };
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Add this line to prevent default form submission behavior
+    try {
+      const response = await fetch(`${url}/api/timetable/generate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          // Add any required data to generate the timetable
+        }),
+      });
+      const data = await response.json();
+      setTimetable(data.timetable);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCounts();
+  }, []);
+
+
+  const handlebuttonClicked =  async ()=>{
     setbuttonClicked(true)
+    try {
+      const response = await fetch(`${url}/api/timetable/generate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          // Add any required data to generate the timetable
+        }),
+      });
+      const data = await response.json();
+      setTimetable(data.timetable);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   
@@ -45,7 +105,7 @@ const Dashboard = () => {
               <span className='text-md lg:text-2xl'>LECTURE ROOMS</span>
               <img src={assets.whitelectureroom} className='h-12 w-16' />
               </div>
-              <div className="number font-bold text-6xl">9</div>
+              <div className="number font-bold text-6xl">{roomCount}</div>
             </div>
 
 
@@ -55,7 +115,7 @@ const Dashboard = () => {
             <span className='text-md lg:text-2xl'>COURSES</span>
             <img src={assets.courses} className='h-12 w-16' />
               </div>
-              <div className="number font-bold text-6xl">27</div>
+              <div className="number font-bold text-6xl">{courseCount}</div>
             </div>
 
 
@@ -64,7 +124,7 @@ const Dashboard = () => {
             <span className='text-2xl'>LECTURERS</span>
             <img src={assets.cap} className='h-12 w-16' />
               </div>
-              <div className="number font-bold text-6xl">19</div>
+              <div className="number font-bold text-6xl">{lecturerCount}</div>
             </div>
 
 
@@ -73,7 +133,7 @@ const Dashboard = () => {
             <span className='text-2xl'>CLASSES</span>
             <img src={assets.classes} className='h-12 w-16' />
               </div>
-              <div className="number font-bold text-6xl">4</div>
+              <div className="number font-bold text-6xl">{classCount}</div>
             </div>
 
 
@@ -88,6 +148,17 @@ const Dashboard = () => {
 
 
 
+            <div className="timetable-container">
+  {timetable.map((row, index) => (
+    <div key={index} className="timetable-row">
+      {row.map((cell, cellIndex) => (
+        <div key={cellIndex} className="timetable-cell">
+          {cell.lecturer} - {cell.course} - {cell.room}
+        </div>
+      ))}
+    </div>
+  ))}
+</div>
 
         </div>
         </div>
@@ -96,7 +167,7 @@ const Dashboard = () => {
             <div className='generate-timetable-modal-shadow' onClick={closeModal}></div>
               <div className='generate-timetable-modal rounded-2xl'>
                 <div className="modal-title text-center text-2xl p-4 text-white font-bold">CERATE NEW TIME TABLE</div>
-                <form className="modal-body space-y-10">
+                <form className="modal-body space-y-10" onSubmit={handleSubmit}>
 
                   <div className="timetable-name mx-20 flex flex-col mt-10">
                     <label htmlFor="time-table-name" className='text-2xl'>Timetable Name</label>

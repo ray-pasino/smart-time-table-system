@@ -9,6 +9,7 @@ const courseRouter = require('./routes/courseroutes')
 const timeModel = require('./models/timemodule')
 const timeRouter = require('./routes/timeRouter')
 const classRouter = require('./routes/classroutes')
+const timetableRouter = require('./routes/generatetimetableroute')
 require('dotenv/config');
 
 //app config
@@ -36,6 +37,7 @@ app.use("/api/room", roomRouter)
 app.use("/api/course", courseRouter)
 app.use("/api/time", timeRouter)
 app.use("/api/class", classRouter)
+app.use("/api/timetable", timetableRouter)
 
 app.get("/", (req,res)=>{
     res.send('gctu time table')

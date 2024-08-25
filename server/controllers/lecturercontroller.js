@@ -147,5 +147,18 @@ const updateLecturer = async(req,res)=>{
 
 }
 
-module.exports = {loginLecturer, registerLecturer, addLecturer, listLecturer, removeLecturer, updateLecturer}
+
+// Count lecturers
+const countLecturers = async (req, res) => {
+    try {
+        const count = await lecturerModel.countDocuments({});
+        res.json({ success: true, count });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Error Counting Lecturers" });
+    }
+};
+
+
+module.exports = {loginLecturer, registerLecturer, addLecturer, listLecturer, removeLecturer, updateLecturer, countLecturers}
 

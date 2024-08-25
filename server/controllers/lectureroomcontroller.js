@@ -43,6 +43,7 @@ const removeRoom = async(req,res)=>{
 }
 
 
+//update room
 const updateRoom = async(req,res)=>{
     try{
         const room = await lectureroommodel.findByIdAndUpdate(req.params.id, {
@@ -57,6 +58,18 @@ const updateRoom = async(req,res)=>{
 
 }
 
-module.exports = {addRoom, listRoom, removeRoom, updateRoom}
+
+// Count Room
+const countRoom = async (req, res) => {
+    try {
+        const count = await lectureroommodel.countDocuments({});
+        res.json({ success: true, count });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Error Counting Rooms" });
+    }
+};
+
+module.exports = {addRoom, listRoom, removeRoom, updateRoom, countRoom}
 
 

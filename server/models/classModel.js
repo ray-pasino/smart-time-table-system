@@ -6,7 +6,7 @@ const classSchema = new mongoose.Schema({
     semester:{type:String, required:true},
     meetings:{type:Number, required:true},
     population:{type:Number, require:true},
-    unavailablerooms:{type:String}
+    unavailablerooms:{type:[String]}
 })
 
 const classModel = mongoose.models.class ||  mongoose.model("class", classSchema)

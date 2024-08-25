@@ -62,5 +62,15 @@ const updateCourse = async(req,res)=>{
 }
 
 
+// Count Courses
+const countCourses = async (req, res) => {
+    try {
+        const count = await courseModel.countDocuments({});
+        res.json({ success: true, count });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Error Counting Courses" });
+    }
+};
 
-module.exports = {addCourse, listCourse, removeCourse, updateCourse}
+module.exports = {addCourse, listCourse, removeCourse, updateCourse, countCourses}

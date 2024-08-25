@@ -37,6 +37,9 @@
     color: #666;
 }
 
+.row{
+    overflow-y: hidden;
+}
 
 
 @media (min-width:768px) {

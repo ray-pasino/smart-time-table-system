@@ -66,4 +66,16 @@ const updateClass = async(req,res)=>{
 
 }
 
-module.exports = {addClass, listClass, removeClass, updateClass}
+
+// Count Classes
+const countClasses = async (req, res) => {
+    try {
+        const count = await classModel.countDocuments({});
+        res.json({ success: true, count });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Error Counting Classes" });
+    }
+};
+
+module.exports = {addClass, listClass, removeClass, updateClass, countClasses}
