@@ -7,7 +7,7 @@ const timetableRouter = express.Router()
 
 
 timetableRouter.post('/timetable', addTimetable);
-timetableRouter.get('/timetable/data', collectData);
+timetableRouter.get('/data', collectData);
 timetableRouter.post('/generate', generateTimetable);
 timetableRouter.get('/timetable', getTimetable); // TO DO: implement getTimetable function
 
