@@ -65,44 +65,33 @@ async function collectData() {
   }
 }
 
-// Generate timetable
-function generateTimetable({ lecturers, courses, lectureRooms, timeSlots, setClasses}, daysOfWeek) {
-  if (!Array.isArray(daysOfWeek) || daysOfWeek.some(day => typeof day !== 'string')) {
-    console.error('Invalid daysOfWeek array:', daysOfWeek);
-    return [];
-  }
+// Generate timetable with day information
+function generateTimetable({ lecturers, courses, lectureRooms, timeSlots, setClasses }, daysOfWeek) {
+  const timetable = [];
 
-  const timetable = Array.from({ length: daysOfWeek.length }, () => 
-    Array.from({ length: timeSlots.length }).fill(null)
-  );
-
-  // Generate the timetable using fetched data
   timeSlots.forEach((slot, timeIndex) => {
     daysOfWeek.forEach((day, dayIndex) => {
-      
-      const randomLecturer = lecturers[Math.floor(Math.random() * lecturers.length)]
+      const randomLecturer = lecturers[Math.floor(Math.random() * lecturers.length)];
       const randomRoom = lectureRooms[Math.floor(Math.random() * lectureRooms.length)];
-      const randomClass = setClasses[Math.floor(Math.random() * setClasses.length)]
-      
-      // Find the lecturer for the selected class
-      const lecturer = lecturers.find(lecturer => lecturer.course === randomClass.course);
-      const lecturerName = lecturer ? lecturer.name : 'Unknown Lecturer';
+      const randomClass = setClasses[Math.floor(Math.random() * setClasses.length)];
 
-      // Include the slot time in the timetable
-      timetable[dayIndex][timeIndex] = {
+      const lecturerName = randomLecturer ? randomLecturer.name : 'Unknown Lecturer';
+
+      timetable.push({
         Semester: randomClass.semester,
         className: randomClass.className,
         course: randomClass.course,
         room: randomRoom ? randomRoom.roomname : 'Unknown Room',
-        time: slot ? `${slot.startTime} - ${slot.endTime}` : 'Unknown Time', // Add time information from the slot
-        lecturer: lecturerName // Use the lecturer associated with the course
-      };
+        time: slot ? `${slot.startTime} - ${slot.endTime}` : 'Unknown Time',
+        lecturer: lecturerName,
+        day: day,  // Add the day to the timetable entry
+      });
     });
   });
 
-  console.log('Generated timetable with time:', timetable);
   return timetable;
 }
+
 
 // Retrieve timetable info
 async function getTimetable(req, res) {
@@ -119,4 +108,18 @@ async function getTimetable(req, res) {
   }
 }
 
-module.exports = { addTimetable, collectData, generateTimetable, getTimetable };
+
+
+//remove timetable
+const removeTimeTable = async(req,res)=>{
+  try{
+      const timetable = await courseModel.generatetimetableModel(req.body.id)
+      await timetable.findByIdAndDelete(req.body.id)
+      res.json({success:true, message:"Timetable Deleted"})
+  }catch(error){
+      console.log(error)
+      res.json({success:true, message:"Error"})
+  }
+}
+
+module.exports = { addTimetable, collectData, generateTimetable, getTimetable, removeTimeTable};

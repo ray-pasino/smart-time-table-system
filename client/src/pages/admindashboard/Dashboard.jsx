@@ -46,6 +46,7 @@ const Dashboard = () => {
       const response = await axios.get(`${url}/api/timetable/timetable`);
       console.log('Timetable data received:', response.data); // Log received data
       setTimetable(response.data.timetable || []);
+      setTimetableName(response.data.name || '')
     } catch (error) {
       console.error('Error fetching timetable:', error);
     }
@@ -102,6 +103,36 @@ const Dashboard = () => {
       toast.error("Error occurred while generating timetable.");
     }
   };
+
+  const removeItem = async (timetableId) => {
+    const response = await axios.post(`${url}/api/timetable/remove`, { id: timetableId });
+    await fetchList();
+    if (response.data.success) {
+      toast.success(response.data.message);
+    } else {
+      toast.error("Error");
+    }
+  };
+
+
+
+  // Flatten and group timetable data
+  const groupedTimetable = timetable.flat().reduce((acc, item) => {
+    const { Semester, className, ...rest } = item;
+    if (!acc[Semester]) {
+      acc[Semester] = {};
+    }
+    if (!acc[Semester][className]) {
+      acc[Semester][className] = [];
+    }
+
+   
+    acc[Semester][className].push(rest);
+    return acc;
+  }, {});
+
+
+
 
   useEffect(() => {
     fetchCounts();
@@ -167,40 +198,57 @@ const Dashboard = () => {
               </button>
             </div>
 
-          <div className="timetable-container mt-10">
-  {timetable.length > 0 ? (
-    timetable.map((row, rowIndex) => (
-      <div key={rowIndex} className="timetable-row mb-10">
-        <table className="min-w-full table-auto">
-          <thead>
-            <tr>
-              <th className="px-4 py-2">Lecturer</th>
-              <th className="px-4 py-2">Course</th>
-              <th className="px-4 py-2">Room</th>
-              <th className="px-4 py-2">Class</th>
-              <th className="px-4 py-2">Time</th>
-              <th className="px-4 py-2">Semester</th>
-            </tr>
-          </thead>
-          <tbody>
-            {row.map((cell, cellIndex) => (
-              <tr key={cellIndex}>
-                <td className="border px-4 py-2">{cell.lecturer}</td>
-                <td className="border px-4 py-2">{cell.course}</td>
-                <td className="border px-4 py-2">{cell.room}</td>
-                <td className="border px-4 py-2">{cell.className}</td>
-                <td className="border px-4 py-2">{cell.time}</td>
-                <td className="border px-4 py-2">{cell.Semester}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+            <div className="timetable-section">
+  {timetable.length === 0 ? (
+    <div className="no-timetable text-center text-xl text-red-500 font-bold">
+      No timetables available
+    </div>
+  ) : (
+    
+    Object.keys(groupedTimetable).map((semester, index) => (
+      <div key={index} className="semester-timetable">
+        <h2 className="text-xl font-bold">{semester}</h2>
+        {Object.keys(groupedTimetable[semester]).map((className, idx) => (
+          <div key={idx} className="class-timetable">
+            <h3 className="font-bold">{className}</h3>
+            <table className="timetable-table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  {/* Render day headers dynamically */}
+                  {data.days.map((day, dayIndex) => (
+                    <th key={dayIndex}>{day}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {groupedTimetable[semester][className].map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.time}</td>
+                    {/* Render the course, room, lecturer for each day */}
+                    {data.days.map((day, dayIndex) => (
+                      <td key={dayIndex}>
+                        {item.day === day ? (
+                          <>
+                            <p>{item.course}</p>
+                            <p>{item.room}</p>
+                            <p>{item.lecturer}</p>
+                          </>
+                        ) : null}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))}
       </div>
     ))
-  ) : (
-    <p>No timetable data available</p>
   )}
 </div>
+
+
 
 
           </div>
