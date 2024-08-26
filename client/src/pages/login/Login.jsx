@@ -12,8 +12,8 @@ const Login = () => {
        <div className="gradient h-64"></div>
       <img className='bannerImg h-64' src={assets.adminBlock}/>
       <div className="login-links mx-4">
-      <p>ARE YOU</p>
-      <div className="button-container space-x-4">
+      <p className='q-text'>ARE YOU ?</p>
+      <div className="BTN-container space-x-4">
       <NavLink  to='/studentlogin' className='btn'>a student</NavLink>
       <NavLink to='/lecturerlogin' className='btn'>a lecturer</NavLink>
       <NavLink to='/administratorlogin' className='btn'>Admin Login</NavLink>

@@ -18,7 +18,7 @@ const Dashboard = () => {
   const [data, setData] = useState({
     name: "",
     semester: "",
-    days: []
+    days: JSON.parse(localStorage.getItem('selectedDays')) || [] // Preserve days across refreshes
   });
 
   // Fetch data from API
@@ -63,17 +63,17 @@ const Dashboard = () => {
   const handleDayChange = (event) => {
     const { value, checked } = event.target;
     setData((prevData) => {
-      if (checked) {
-        return {
-          ...prevData,
-          days: [...prevData.days, value]
-        };
-      } else {
-        return {
-          ...prevData,
-          days: prevData.days.filter((day) => day !== value)
-        };
-      }
+      const updatedDays = checked
+        ? [...prevData.days, value]
+        : prevData.days.filter((day) => day !== value);
+  
+      // Save days to localStorage to persist across refreshes
+      localStorage.setItem('selectedDays', JSON.stringify(updatedDays));
+  
+      return {
+        ...prevData,
+        days: updatedDays,
+      };
     });
   };
 
@@ -113,6 +113,7 @@ const Dashboard = () => {
       toast.error("Error");
     }
   };
+
 
 
 
@@ -199,54 +200,51 @@ const Dashboard = () => {
             </div>
 
             <div className="timetable-section">
-  {timetable.length === 0 ? (
-    <div className="no-timetable text-center text-xl text-red-500 font-bold">
-      No timetables available
-    </div>
-  ) : (
-    
-    Object.keys(groupedTimetable).map((semester, index) => (
-      <div key={index} className="semester-timetable">
-        <h2 className="text-xl font-bold">{semester}</h2>
-        {Object.keys(groupedTimetable[semester]).map((className, idx) => (
-          <div key={idx} className="class-timetable">
-            <h3 className="font-bold">{className}</h3>
-            <table className="timetable-table">
-              <thead>
-                <tr>
-                  <th>Time</th>
-                  {/* Render day headers dynamically */}
-                  {data.days.map((day, dayIndex) => (
-                    <th key={dayIndex}>{day}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {groupedTimetable[semester][className].map((item, index) => (
-                  <tr key={index}>
-                    <td>{item.time}</td>
-                    {/* Render the course, room, lecturer for each day */}
-                    {data.days.map((day, dayIndex) => (
-                      <td key={dayIndex}>
-                        {item.day === day ? (
-                          <>
-                            <p>{item.course}</p>
-                            <p>{item.room}</p>
-                            <p>{item.lecturer}</p>
-                          </>
-                        ) : null}
-                      </td>
+              {timetable.length === 0 ? (
+                <div className="no-timetable text-center text-xl text-red-500 font-bold">
+                  No timetables available
+                </div>
+              ) : (
+                Object.keys(groupedTimetable).map((semester, index) => (
+                  <div key={index} className="semester-timetable">
+                    <h2 className="text-xl font-bold">{semester}</h2>
+                    {Object.keys(groupedTimetable[semester]).map((className, idx) => (
+                      <div key={idx} className="class-timetable">
+                        <h3 className="font-bold">{className}</h3>
+                        <table className="timetable-table">
+                          <thead>
+                            <tr>
+                              <th>Time</th>
+                              {data.days.map((day, dayIndex) => (
+                                <th key={dayIndex}>{day}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {groupedTimetable[semester][className].map((item, index) => (
+                              <tr key={index}>
+                                <td>{item.time}</td>
+                                {data.days.map((day, dayIndex) => (
+                                  <td key={dayIndex}>
+                                    {item.day === day ? (
+                                      <>
+                                        <p>{item.course}</p>
+                                        <p>{item.room}</p>
+                                        <p>{item.lecturer}</p>
+                                      </>
+                                    ) : null}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
                     ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ))}
-      </div>
-    ))
-  )}
-</div>
+                  </div>
+                ))
+              )}
+            </div>
 
 
 

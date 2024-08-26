@@ -68,15 +68,29 @@ async function collectData() {
 // Generate timetable with day information
 function generateTimetable({ lecturers, courses, lectureRooms, timeSlots, setClasses }, daysOfWeek) {
   const timetable = [];
+  const assignedCourses = new Set();   // Track assigned courses
+  const assignedTimeSlots = new Set(); // Track assigned time slots
 
   timeSlots.forEach((slot, timeIndex) => {
+    // Check if the time slot has already been assigned
+    if (assignedTimeSlots.has(timeIndex)) return;
+
     daysOfWeek.forEach((day, dayIndex) => {
+      // Filter courses that haven't been assigned yet
+      const availableCourses = setClasses.filter(
+        (cls) => !assignedCourses.has(cls.course)
+      );
+
+      if (availableCourses.length === 0) return; // No more courses available
+
+      // Pick a random course and room
       const randomLecturer = lecturers[Math.floor(Math.random() * lecturers.length)];
       const randomRoom = lectureRooms[Math.floor(Math.random() * lectureRooms.length)];
-      const randomClass = setClasses[Math.floor(Math.random() * setClasses.length)];
+      const randomClass = availableCourses[Math.floor(Math.random() * availableCourses.length)];
 
       const lecturerName = randomLecturer ? randomLecturer.name : 'Unknown Lecturer';
 
+      // Add the timetable entry
       timetable.push({
         Semester: randomClass.semester,
         className: randomClass.className,
@@ -84,8 +98,12 @@ function generateTimetable({ lecturers, courses, lectureRooms, timeSlots, setCla
         room: randomRoom ? randomRoom.roomname : 'Unknown Room',
         time: slot ? `${slot.startTime} - ${slot.endTime}` : 'Unknown Time',
         lecturer: lecturerName,
-        day: day,  // Add the day to the timetable entry
+        day: day, // Add the day to the timetable entry
       });
+
+      // Mark the course and time slot as assigned
+      assignedCourses.add(randomClass.course);
+      assignedTimeSlots.add(timeIndex);
     });
   });
 
