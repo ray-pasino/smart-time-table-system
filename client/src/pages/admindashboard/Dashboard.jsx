@@ -166,21 +166,43 @@ const Dashboard = () => {
                 <p className='font-bold text-white text-xl'>GENERATE NEW TIMETABLE</p>
               </button>
             </div>
-            <div className="timetable-container mt-10">
-              {timetable.length > 0 ? (
-                timetable.map((row, rowIndex) => (
-                  <div key={rowIndex} className="timetable-row">
-                    {row.map((cell, cellIndex) => (
-                      <div key={cellIndex} className="timetable-cell">
-                        {cell ? `${cell.lecturer} - ${cell.course} - ${cell.room}` : "No class scheduled"}
-                      </div>
-                    ))}
-                  </div>
-                ))
-              ) : (
-                <p>No timetable data available</p>
-              )}
-            </div>
+
+          <div className="timetable-container mt-10">
+  {timetable.length > 0 ? (
+    timetable.map((row, rowIndex) => (
+      <div key={rowIndex} className="timetable-row mb-10">
+        <table className="min-w-full table-auto">
+          <thead>
+            <tr>
+              <th className="px-4 py-2">Lecturer</th>
+              <th className="px-4 py-2">Course</th>
+              <th className="px-4 py-2">Room</th>
+              <th className="px-4 py-2">Class</th>
+              <th className="px-4 py-2">Time</th>
+              <th className="px-4 py-2">Semester</th>
+            </tr>
+          </thead>
+          <tbody>
+            {row.map((cell, cellIndex) => (
+              <tr key={cellIndex}>
+                <td className="border px-4 py-2">{cell.lecturer}</td>
+                <td className="border px-4 py-2">{cell.course}</td>
+                <td className="border px-4 py-2">{cell.room}</td>
+                <td className="border px-4 py-2">{cell.className}</td>
+                <td className="border px-4 py-2">{cell.time}</td>
+                <td className="border px-4 py-2">{cell.Semester}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    ))
+  ) : (
+    <p>No timetable data available</p>
+  )}
+</div>
+
+
           </div>
         </div>
         {buttonClicked && (
