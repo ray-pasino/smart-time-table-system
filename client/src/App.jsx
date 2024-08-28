@@ -33,7 +33,9 @@ const App = () => {
 
   const location = useLocation()
 
-  const showBannerandFooter = location.pathname === '/' ||
+  const showBannerandFooter =
+   
+    
                      location.pathname === '/studentlogin' ||
                      location.pathname === '/lecturerlogin' ||
                       location.pathname === '/administratorlogin'

@@ -4,6 +4,9 @@ import "./Studentlogin.css";
 import { assets } from "../../assets/assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import BannerInfo from "../../components/bannerInfo/BannerInfo";
+import Footer from "../../components/footer/Footer";
+import Nfooter from "../../components/n-footer/Nfooter";
 
 const Studentlogin = () => {
 
@@ -30,7 +33,7 @@ const Studentlogin = () => {
 
   return (
     <div className="studentlogin">
-      
+      <BannerInfo/>
       <div className="banner-border"></div>
         <div className="gradient h-64"></div>
       <img className="bannerImg object-cover h-64" src={assets.studygroup} />

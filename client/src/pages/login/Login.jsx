@@ -1,23 +1,16 @@
 import React from 'react'
 import './Login.css'
 import { assets } from '../../assets/assets'
-import { NavLink } from 'react-router-dom'
+import BannerInfo2 from '../../components/bannerInfo 2/BannerInfo2'
+import Nfooter from '../../components/n-footer/Nfooter'
 
 
 const Login = () => {
   return (
     <>
-    <div className='login '>
-       <div className="banner-border"></div>
-       <div className="gradient h-64"></div>
-      <img className='bannerImg h-64' src={assets.adminBlock}/>
-      <div className="login-links mx-4">
-      <p className='q-text'>ARE YOU ?</p>
-      <div className="BTN-container space-x-4">
-      <NavLink  to='/studentlogin' className='btn'>a student</NavLink>
-      <NavLink to='/lecturerlogin' className='btn'>a lecturer</NavLink>
-      <NavLink to='/administratorlogin' className='btn'>Admin Login</NavLink>
-      </div>
+    <div className='login'>
+      <div className="welcome-div">
+      <BannerInfo2/>
       </div>
     </div>
     </>

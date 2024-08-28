@@ -1,4 +1,4 @@
-.btn{
+/* .btn{
     border: 1px solid #6a6a6a;
     padding: 10px 5px;
     color: aliceblue;
@@ -16,4 +16,19 @@
 .q-text{
     position: absolute;
     margin-top: -750px;
+} */
+
+.welcome-div{
+    background-image: linear-gradient(36.84deg, rgba(39, 42, 98, 0.69) 37.03%, rgba(231, 173, 41, 0.552) 84.64%), url('/adminblock.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
 }
+
+.login{
+    height: 100vh;
+}
+
+
