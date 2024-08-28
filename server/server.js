@@ -10,6 +10,9 @@ const timeModel = require('./models/timemodule')
 const timeRouter = require('./routes/timeRouter')
 const classRouter = require('./routes/classroutes')
 const timetableRouter = require('./routes/generatetimetableroute')
+const studentRouter = require('./routes/studentroutes')
+const { authenticateStudent, showStudentInfo } = require('./controllers/studentcontroller')
+const { authenticateLecturer, showLecturerInfo } = require('./controllers/lecturercontroller')
 require('dotenv/config');
 
 //app config
@@ -31,8 +34,11 @@ connectDB()
 
 //api endpoint 
 app.use("/api/lecturer", lecturerRouter)
+app.use("/api/lecturer/info", authenticateLecturer, showLecturerInfo)
 app.use("/api/admin", adminRouter)
 app.use("/api/admin/info", authenticateUser, showinfo)
+app.use("/api/student", studentRouter)
+app.use("/api/student/info", authenticateStudent, showStudentInfo)
 app.use("/api/room", roomRouter)
 app.use("/api/course", courseRouter)
 app.use("/api/time", timeRouter)

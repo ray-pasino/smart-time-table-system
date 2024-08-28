@@ -65,25 +65,23 @@ async function collectData() {
   }
 }
 
-// Generate timetable with day information
+//Generate time table fuction
 function generateTimetable({ lecturers, courses, lectureRooms, timeSlots, setClasses }, daysOfWeek) {
   const timetable = [];
-  const assignedCourses = new Set();   // Track assigned courses
-  const assignedTimeSlots = new Set(); // Track assigned time slots
+  const assignedCourses = new Set(); // Track assigned courses
+  const assignedSlots = new Array(timeSlots.length).fill().map(() => new Array(daysOfWeek.length).fill(0)); // Track assigned slots
 
-  timeSlots.forEach((slot, timeIndex) => {
-    // Check if the time slot has already been assigned
-    if (assignedTimeSlots.has(timeIndex)) return;
-
-    daysOfWeek.forEach((day, dayIndex) => {
-      // Filter courses that haven't been assigned yet
+  // Iterate through each day and each time slot
+  daysOfWeek.forEach((day) => {
+    timeSlots.forEach((slot, slotIndex) => {
+      // Filter courses that haven't been assigned yet and haven't been assigned to this time slot and day
       const availableCourses = setClasses.filter(
-        (cls) => !assignedCourses.has(cls.course)
+        (cls) => !assignedCourses.has(cls.course) && assignedSlots[slotIndex][daysOfWeek.indexOf(day)] === 0
       );
 
       if (availableCourses.length === 0) return; // No more courses available
 
-      // Pick a random course and room
+      // Pick a random course, lecturer, and room
       const randomLecturer = lecturers[Math.floor(Math.random() * lecturers.length)];
       const randomRoom = lectureRooms[Math.floor(Math.random() * lectureRooms.length)];
       const randomClass = availableCourses[Math.floor(Math.random() * availableCourses.length)];
@@ -96,19 +94,21 @@ function generateTimetable({ lecturers, courses, lectureRooms, timeSlots, setCla
         className: randomClass.className,
         course: randomClass.course,
         room: randomRoom ? randomRoom.roomname : 'Unknown Room',
-        time: slot ? `${slot.startTime} - ${slot.endTime}` : 'Unknown Time',
+        time: `${timeSlots[slotIndex].startTime} - ${timeSlots[slotIndex].endTime}`,
         lecturer: lecturerName,
         day: day, // Add the day to the timetable entry
       });
 
-      // Mark the course and time slot as assigned
+      // Mark the course as assigned and mark the time slot and day as assigned
       assignedCourses.add(randomClass.course);
-      assignedTimeSlots.add(timeIndex);
+      assignedSlots[slotIndex][daysOfWeek.indexOf(day)] = 1;
     });
   });
 
   return timetable;
 }
+
+
 
 
 // Retrieve timetable info

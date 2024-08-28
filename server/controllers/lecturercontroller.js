@@ -12,13 +12,13 @@ const loginLecturer = async(req,res)=>{
         const user = await lecturerModel.findOne({id})
 
         if (!user){
-            return res.json({success:false, message:"ID or password is incorrect"})
+            return res.json({success:false, message:"ID is incorrect"})
         }
 
         const isMatcch = await bcrypt.compare(password,user.password)
 
         if(!isMatcch){
-            return res.json({succes:false, message:"ID or password is incorrect"})
+            return res.json({succes:false, message:"password is incorrect"})
         }
 
         const token = createToken(user._id)
@@ -160,5 +160,51 @@ const countLecturers = async (req, res) => {
 };
 
 
-module.exports = {loginLecturer, registerLecturer, addLecturer, listLecturer, removeLecturer, updateLecturer, countLecturers}
+
+
+// Show specific logged-in user info
+const showLecturerInfo = async (req, res) => {
+    try {
+        // Get user ID from the request (from JWT)
+        const userId = req.user.id;
+
+        // Find the user in the database by ID
+        const user = await lecturerModel.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
+
+        // Send back the user data
+        res.json({ success: true, data: user });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Error retrieving user info" });
+    }
+};
+
+
+
+// Middleware to authenticate and extract user ID from JWT
+const authenticateLecturer = (req, res, next) => {
+    const token = req.header('Authorization').replace('Bearer ', '');
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = decoded;
+        next();
+    } catch (error) {
+        return res.status(401).json({ success: false, message: "Authentication failed" });
+    }
+};
+
+
+// logout user
+const logoutLecturer = (req, res) => {
+    // Clear the token on the client-side; no need to do much here
+    res.json({ success: true, message: "Logged out successfully" });
+};
+
+
+module.exports = {loginLecturer, registerLecturer, addLecturer, listLecturer, removeLecturer, updateLecturer, countLecturers, showLecturerInfo, authenticateLecturer, logoutLecturer}
 

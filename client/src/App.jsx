@@ -19,6 +19,7 @@ import Classes from './pages/Classes/Classes'
 import Lecturerinfo from './pages/lecturerinfo/Lecturerinfo'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Studentstimetable from './pages/studentstimetale/Studentstimetable'
 
 
 
@@ -61,6 +62,7 @@ const App = () => {
       <Route path='/timeandschedule' element={<Timeandschedule/>}/>
       <Route path='/classes' element={<Classes/>}/>
       <Route path='/lecturerinfo' element={<Lecturerinfo/>}/>
+      <Route path='/studenttimetable' element={<Studentstimetable/>}/>
     </Routes>
 
     {showBannerandFooter  && <Footer/> }
