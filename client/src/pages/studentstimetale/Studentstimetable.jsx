@@ -3,6 +3,10 @@ import './studentstimetable.css';
 import Studentheader from '../../components/studentheader/Studentheader';
 import axios from 'axios';
 import { StoreContext } from '../../context/Storecontext';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faBellSlash, faBell} from '@fortawesome/free-solid-svg-icons'
+import { toast } from 'react-toastify';
+
 
 const Studentstimetable = () => {
   const { url, token } = useContext(StoreContext);
@@ -34,7 +38,7 @@ const Studentstimetable = () => {
           Authorization: `Bearer ${token}` // Send the JWT token for authentication
         }
       });
-
+      
       if (response.data.success) {
         setStudentProgram(response.data.data.program); // Store the student's program in state
       }
@@ -47,6 +51,16 @@ const Studentstimetable = () => {
     fetchTimetable(); // Initial fetch for timetable data
     fetchStudentInfo()
   }, []);
+  
+  const [bellClicked, setbellClicked] = useState(false)
+
+const handlebellClicked = () => {
+  setbellClicked(!bellClicked)
+}
+
+if(bellClicked === false){
+  toast.success("You will now receive SMS notifications on you time table schedule")
+}
 
   const groupedTimetable = timetable.flat().reduce((acc, item) => {
     if (item.className === StudentProgram) { // Filter only the student's program
@@ -117,6 +131,18 @@ const Studentstimetable = () => {
           ))
         )}
       </div>
+
+<div className="notification-container ">
+
+        <p className='font-bold text-b-blue text-xl'>Click on the bell icon to receive daily notifications on your Timetable Schedule
+          {bellClicked ?
+          <FontAwesomeIcon icon={faBellSlash} className='cursor-pointer ms-4 text-blue-600' onClick={handlebellClicked}/>
+          :
+          <FontAwesomeIcon icon={faBell} className='cursor-pointer ms-4 text-blue-600' onClick={handlebellClicked} shake/>
+
+        }
+        </p>
+</div>
     </div>
   );
 };

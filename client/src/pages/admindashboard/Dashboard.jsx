@@ -199,7 +199,7 @@ const Dashboard = () => {
               </button>
             </div>
 
-            <div className="timetable-section">
+            <div className="timetable-section z-40 absolute ">
               {timetable.length === 0 ? (
                 <div className="no-timetable text-center text-xl text-red-500 font-bold">
                   No timetables available

@@ -15,6 +15,7 @@ const { authenticateStudent, showStudentInfo } = require('./controllers/studentc
 const { authenticateLecturer, showLecturerInfo } = require('./controllers/lecturercontroller')
 require('dotenv/config');
 
+
 //app config
 const app = express()
 const PORT = 3000
@@ -31,6 +32,10 @@ app.use(cors({
 
 //db connection
 connectDB()
+
+
+
+
 
 //api endpoint 
 app.use("/api/lecturer", lecturerRouter)
@@ -52,3 +57,5 @@ app.get("/", (req,res)=>{
 app.listen(PORT, ()=>{
     console.log(`Server is listening on Port ${PORT}`)
 })
+
+
