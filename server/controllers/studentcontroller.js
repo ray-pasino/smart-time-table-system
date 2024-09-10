@@ -124,6 +124,21 @@ const showStudentInfo = async (req, res) => {
 };
 
 
+const getAllStudents = async (req, res) => {
+    try {
+      const students = await studentModel.find(); // Get all students (no filter by ID)
+      
+      if (students.length === 0) {
+        return res.status(404).json({ success: false, message: "No students found" });
+      }
+  
+      res.status(200).json({ success: true, data: students });
+    } catch (error) {
+      res.status(500).json({ success: false, message: "Error fetching students", error: error.message });
+    }
+  };
+  
+
 // logout user
 const logoutStudent = (req, res) => {
     // Clear the token on the client-side; no need to do much here
@@ -131,4 +146,4 @@ const logoutStudent = (req, res) => {
 };
 
 
-module.exports = {loginStudent, registerStudent, showStudentInfo, authenticateStudent, logoutStudent}
+module.exports = {loginStudent, registerStudent, showStudentInfo, authenticateStudent, logoutStudent, getAllStudents}

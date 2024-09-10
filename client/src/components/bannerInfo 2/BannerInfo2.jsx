@@ -37,11 +37,11 @@ const BannerInfo2 = () => {
               </NavLink>
             </div>
 
-            <div className="button-2 cursor-pointer">
+            {/* <div className="button-2 cursor-pointer">
               <NavLink to="/lecturerlogin">
               LECTURER
               </NavLink>
-            </div>
+            </div> */}
 
             <div className="button-3 cursor-pointer">
               <NavLink to="/administratorlogin">

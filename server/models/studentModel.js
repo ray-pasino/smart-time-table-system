@@ -9,7 +9,7 @@ const studentSchema = new mongoose.Schema({
     session:{type:String},
     level:{type:Number},
     program:{type:String},
-    phone:{type:Number},
+    phone:{type:String},
     campus:{type:String},
     faculty:{type:String},
     session:{type:String}

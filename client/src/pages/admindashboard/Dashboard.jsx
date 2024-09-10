@@ -15,6 +15,7 @@ const Dashboard = () => {
   const [courseCount, setCourseCount] = useState(0);
   const [classCount, setClassCount] = useState(0);
   const [timetable, setTimetable] = useState([]);
+  const [StudentPhoneNumbers ,setStudentPhoneNumbers] = useState()
   const [data, setData] = useState({
     name: "",
     semester: "",
@@ -52,6 +53,23 @@ const Dashboard = () => {
     }
   };
   
+//fetch student phone numbers
+const fetchStudentPhoneNumbers = async () => {
+  try {
+    const response = await axios.get(`${url}/api/student/information`, {
+    });
+    
+    if (response.data.success) {
+      const phoneNumbers = response.data.data.map(student => student.phone); // Extract phone numbers from each student
+      setStudentPhoneNumbers(phoneNumbers); // Store all student phone numbers in state
+      console.log(StudentPhoneNumbers)
+  
+    }
+  } catch (error) {
+    console.error('Error fetching student phone numbers:', error);
+  }
+}
+
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
     setData((prevData) => ({
@@ -94,6 +112,36 @@ const Dashboard = () => {
         toast.success("Timetable generated successfully!");
         setButtonClicked(false);
         fetchTimetable(); // Refresh timetable data
+
+         // Trigger SMS notification after timetable is generated
+
+         const myHeaders = new Headers();
+         myHeaders.append("Authorization", "App cf978b239a4ad027dbf294e9dea2fb44-c898061c-788d-4efb-a992-3a81ef684be6")
+         myHeaders.append("Content-Type", "application/json");
+         myHeaders.append("Accept", "application/json");
+         
+
+
+         const messages = StudentPhoneNumbers.map((phoneNumber) => ({
+          destinations: [{ to: phoneNumber }],
+          from: "GCTU",
+          text: "Dear Student, your timetable for the semester has just been created. Log into your Students Portal to view your timetable.",
+        }));
+
+        const raw = JSON.stringify({ messages });
+   
+         const requestOptions = {
+           method: "POST",
+           headers: myHeaders,
+           body: raw,
+           redirect: "follow"
+         };
+   
+         fetch("https://m32ew9.api.infobip.com/sms/2/text/advanced", requestOptions)
+           .then((response) => response.text())
+           .then((result) => console.log(result))
+           .catch((error) => console.error(error));
+
       } else {
         toast.error("Failed to generate timetable.");
         setButtonClicked(false);
@@ -104,6 +152,8 @@ const Dashboard = () => {
     }
   };
 
+
+  //delete the database
   const removeItem = async (timetableId) => {
     const response = await axios.post(`${url}/api/timetable/remove`, { id: timetableId });
     await fetchList();
@@ -135,9 +185,11 @@ const Dashboard = () => {
 
 
 
+
   useEffect(() => {
     fetchCounts();
     fetchTimetable(); // Initial fetch for timetable data
+    fetchStudentPhoneNumbers()
   }, []);
 
   const handleButtonClicked = () => {
