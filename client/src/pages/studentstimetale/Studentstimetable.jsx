@@ -137,7 +137,7 @@ if(bellClicked === true){
            const scheduleDailySMS = () => {
             const now = new Date();
             const targetTime = new Date();
-            targetTime.setHours(8, 0, 0, 0); // Set time to 17:40:00
+            targetTime.setHours(8, 0, 0, 0); // Set time to 8:00:00
         
             if (now > targetTime) {
               targetTime.setDate(targetTime.getDate() + 1); // Schedule for the next day if it's already past 17:40
