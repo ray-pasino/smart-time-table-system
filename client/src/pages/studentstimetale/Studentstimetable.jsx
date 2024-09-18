@@ -95,41 +95,41 @@ if(bellClicked === true){
 
          // Trigger SMS notification after Student allows notifications
 
-    //      const myHeaders = new Headers();
-    //      myHeaders.append("Authorization", "App cf978b239a4ad027dbf294e9dea2fb44-c898061c-788d-4efb-a992-3a81ef684be6")
-    //      myHeaders.append("Content-Type", "application/json");
-    //      myHeaders.append("Accept", "application/json");
+         const myHeaders = new Headers();
+         myHeaders.append("Authorization", "App cf978b239a4ad027dbf294e9dea2fb44-c898061c-788d-4efb-a992-3a81ef684be6")
+         myHeaders.append("Content-Type", "application/json");
+         myHeaders.append("Accept", "application/json");
          
 
-    //       // Format timetable information for SMS
-    // const timetableMessages = timetable.flat().reduce((acc, item) => {
-    //   if (item.className === StudentProgram) { // Filter only the student's program
-    //     const message = `${item.time} - ${item.course} (${item.room}, ${item.lecturer})`;
-    //     acc.push(message);
-    //   }
-    //   return acc;
-    // }, []).join('\n');
+          // Format timetable information for SMS
+    const timetableMessages = timetable.flat().reduce((acc, item) => {
+      if (item.className === StudentProgram) { // Filter only the student's program
+        const message = `${item.time} - ${item.course} (${item.room}, ${item.lecturer})`;
+        acc.push(message);
+      }
+      return acc;
+    }, []).join('\n');
 
 
-    //      const messages = StudentPhoneNumbers.map((phoneNumber) => ({
-    //       destinations: [{ to: phoneNumber }],
-    //       from: "GCTU",
-    //       text: "Dear Student, you will now receive SMS notifications on your timetable schedule.",
-    //     }));
+         const messages = StudentPhoneNumbers.map((phoneNumber) => ({
+          destinations: [{ to: phoneNumber }],
+          from: "GCTU",
+          text: "Dear Student, you will now receive SMS notifications on your timetable schedule.",
+        }));
 
-    //     const raw = JSON.stringify({ messages });
+        const raw = JSON.stringify({ messages });
    
-    //      const requestOptions = {
-    //        method: "POST",
-    //        headers: myHeaders,
-    //        body: raw,
-    //        redirect: "follow"
-    //      };
+         const requestOptions = {
+           method: "POST",
+           headers: myHeaders,
+           body: raw,
+           redirect: "follow"
+         };
    
-    //      fetch("https://m32ew9.api.infobip.com/sms/2/text/advanced", requestOptions)
-    //        .then((response) => response.text())
-    //        .then((result) => console.log(result))
-    //        .catch((error) => console.error(error));
+         fetch("https://m32ew9.api.infobip.com/sms/2/text/advanced", requestOptions)
+           .then((response) => response.text())
+           .then((result) => console.log(result))
+           .catch((error) => console.error(error));
 
 
 
