@@ -140,13 +140,13 @@ if(bellClicked === true){
             targetTime.setHours(8, 0, 0, 0); // Set time to 8:00:00
         
             if (now > targetTime) {
-              targetTime.setDate(targetTime.getDate() + 1); // Schedule for the next day if it's already past 17:40
+              targetTime.setDate(targetTime.getDate() + 1); // Schedule for the next day if it's already past 8:00
             }
         
             const timeUntilTarget = targetTime - now;
         
             setTimeout(() => {
-              sendScheduledSMS(); // Schedule SMS once at 17:40
+              sendScheduledSMS(); // Schedule SMS once at 8:00
               setInterval(sendScheduledSMS, 24 * 60 * 60 * 1000); // Repeat daily
             }, timeUntilTarget);
           };
