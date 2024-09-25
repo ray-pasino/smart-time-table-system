@@ -30,7 +30,7 @@ const BannerInfo2 = () => {
           </div>
 
 
-          <div className="buttons flex font-bold text-4xl mt-20">
+          <div className="buttons flex font-bold text-4xl mt-20 space-x-20 justify-center">
             <div className="button-1 cursor-pointer">
               <NavLink to="/studentlogin">
               STUDENT
