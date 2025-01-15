@@ -24,5 +24,4 @@ ADMINISTRATOR LOGIN
     password: joycometh5
 
     
-    LINK TO MY GITHUB 👇🏾
-    https://github.com/ray-pasino
+ 
