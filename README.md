@@ -1,1 +1,28 @@
 SMART TIME TABLE SYSTEM WEB APP WITH SMART TIME TABLE GENERATION AND SMS NOTIFICATION FOR CLASS SCHEDULES
+
+
+BELOW IS A LIST OF DETAILS YOU WILL NEED TO LOGIN AND TEST THE APP
+
+
+STUDENT LOGIN
+
+        COMPUTER SCIENCE STUDENT
+        id : 4211231920
+        password: joycometh5
+
+        BIT STUDENT
+        id: 4211231921
+        password: joycometh5
+
+        SOFTWARE ENGINEERING STUDENT
+        id:4211231922
+        password: joycometh5
+
+
+ADMINISTRATOR LOGIN
+    id: 3203040001
+    password: joycometh5
+
+    
+    LINK TO MY GITHUB 👇🏾
+    https://github.com/ray-pasino
